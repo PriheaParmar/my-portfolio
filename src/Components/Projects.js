@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 const items = [
   {
     image: 'https://c0.wallpaperflare.com/preview/136/42/382/gray-galaxy.jpg',
-    link: 'https://google.com/',
+    link: 'https://sppacee-h.vercel.app/',
     title: 'SpaceH',
     description: 'A universe of space wonders by me.'
   },
