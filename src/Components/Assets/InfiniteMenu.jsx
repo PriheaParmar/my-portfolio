@@ -1132,7 +1132,6 @@ export default function InfiniteMenu({ items = [] }) {
         position: "relative",
         width: "100%",
         height: "100%",
-        background: "red",
       }}
     >
       <canvas
