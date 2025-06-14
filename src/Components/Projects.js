@@ -14,7 +14,7 @@ const items = [
   },
   {
     image: 'https://m.media-amazon.com/images/I/51-WOQHsWOL.jpg',
-    link: 'https://google.com/',
+    link: 'https://verdecer.vercel.app/',
     title: 'Verdecer',
     description: 'Nature-inspired. Tech-powered. Created by me..'
   },
