@@ -1,0 +1,98 @@
+.contact {
+    margin-right: 10vw;
+    margin-left: 10vw;
+    z-index: 1000;
+}
+
+.contact-container {
+    /* border: 2px solid red; */
+    height: 40vh;
+    color: white;
+    font-family: 'proza libre';
+    font-size: 1.2rem;
+    color: #666666;
+}
+
+.social-media {
+    background: #181818;
+    z-index: 100;
+    width: 25vw;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.gradient-underline {
+    font-size: 2rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.email-link {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.675);
+    font-family: 'cormorant garamond';
+    transition: color 0.5s ease;
+}
+
+.email-link:hover {
+    color: white;
+}
+
+.email-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #F7374F, #88304E, #522546);
+    background-size: 200% 100%;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    animation: gradientFlow 3s ease infinite;
+}
+
+.email-link:hover::after {
+    height: 4px;
+    bottom: -6px;
+    color: white;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.social-icon {
+    transition: fill 0.8s ease;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    fill: url(#gradient);
+}
+
+.social-media a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+.social-media a:focus,
+.social-media a:active,
+.social-media a:visited {
+    outline: none;
+    box-shadow: none;
+    color: white;
+}

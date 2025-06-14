@@ -1,0 +1,41 @@
+.heading-about span {
+    font-weight: bold;
+    color: #ff69b4;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+}
+.about{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height: 100vh;
+}
+
+.card{
+    width: 30vw;
+}
+
+.heading{
+    padding-top: 10vh;
+    text-align: right;
+    
+}
+
+.content{
+    display: flex;
+}
+.content-text{
+    font-family: 'proza libre';
+    display: flex;
+    flex-direction: column;
+    color: #8a8a8a;
+    font-size: 1.2rem;
+    line-height: 6px;
+    margin-top: 6vh;
+}
+.name{
+    display: flex;
+}
+.priya{
+    font-weight: 600;
+    color: white;
+}

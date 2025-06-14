@@ -1,0 +1,35 @@
+html {
+
+  background: #000;
+}
+
+body {
+
+  background: #000;
+}
+
+section {
+  height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-timeline: auto;
+  scroll-snap-stop: always;
+}
+
+html {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.contact-section
+{
+  z-index: 1;
+}

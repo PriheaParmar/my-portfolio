@@ -1,0 +1,23 @@
+/*===============[ HOME.CSS ]================*/
+
+body {
+    margin: 0;
+    background: #050505;
+    color: white;
+}
+.home-page {
+    display: flex;
+    color: white;
+    padding-top: 12vh;
+}
+.welcome-text {
+    margin-top: 5vh;
+    color: white;
+    font-family: 'proza libre';
+    font-size: 1.5rem;
+    width: 60vw;
+    padding: 8rem;
+}
+.lottie-container {
+    width: 10vw;
+}
