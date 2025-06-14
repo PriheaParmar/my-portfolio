@@ -20,7 +20,7 @@ const items = [
   },
   {
     image: 'https://images.pexels.com/photos/10585474/pexels-photo-10585474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: 'https://google.com/',
+    link: 'https://lamborghini-x.vercel.app/',
     title: 'LamborghiniX',
     description: 'Luxury, speed, and my creative flair'
   },
