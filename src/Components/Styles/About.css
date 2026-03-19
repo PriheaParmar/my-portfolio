@@ -1,0 +1,223 @@
+.heading-about span {
+  font-weight: bold;
+  color: #ff69b4;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.about {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  position: relative;
+}
+
+.experience-section {
+  padding-bottom: 8vh;
+}
+
+.heading {
+  padding-top: 10vh;
+  text-align: right;
+}
+
+.experience-intro {
+  max-width: 700px;
+  margin-left: auto;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+  text-align: right;
+  color: #9a9a9a;
+  font-family: 'proza libre';
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.experience-steps {
+  position: relative;
+}
+
+.experience-step {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.experience-card {
+  width: min(820px, 100%);
+  position: relative;
+  padding: 34px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(-130px) scale(0.96);
+  filter: blur(10px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.75s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.experience-step.visible .experience-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.experience-card:hover {
+  border-color: rgba(255, 105, 180, 0.28);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.24);
+}
+
+.experience-number {
+  position: absolute;
+  right: 18px;
+  top: 6px;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.experience-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-eyebrow {
+  margin: 0 0 10px;
+  color: #ff69b4;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-family: 'proza libre';
+}
+
+.experience-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  font-weight: 600;
+  font-family: 'proza libre';
+}
+
+.experience-card h4 {
+  margin: 10px 0 0;
+  color: #d7d7d7;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-family: 'proza libre';
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #aaaaaa;
+  font-size: 0.92rem;
+  text-align: right;
+  white-space: nowrap;
+  font-family: 'proza libre';
+}
+
+.experience-tech {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-tech span {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 105, 180, 0.08);
+  border: 1px solid rgba(255, 105, 180, 0.18);
+  color: #ffd2e8;
+  font-size: 0.88rem;
+  font-family: 'proza libre';
+}
+
+.experience-card ul {
+  margin: 24px 0 0;
+  padding-left: 20px;
+  color: #d3d3d3;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-card li {
+  margin-bottom: 12px;
+  line-height: 1.8;
+  font-size: 0.98rem;
+  font-family: 'proza libre';
+}
+
+@media (max-width: 992px) {
+  .about {
+    margin-left: 6vw;
+    margin-right: 6vw;
+  }
+
+  .heading,
+  .experience-intro {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .experience-step {
+    min-height: 78vh;
+  }
+
+  .experience-card-top {
+    flex-direction: column;
+  }
+
+  .experience-meta {
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 576px) {
+  .experience-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .experience-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .experience-card h4 {
+    font-size: 0.95rem;
+  }
+
+  .experience-card li {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .experience-number {
+    font-size: 4.2rem;
+  }
+
+  .experience-step {
+    min-height: 72vh;
+  }
+}

@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global defaults */
+html, body {
+  background: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Better full-height sections on mobile (uses small viewport units) */
+section {
+  min-height: 100svh;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+
+  /* Hide scrollbars while keeping scroll */
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,16 @@
+.scroll-float {
+    overflow: hidden;
+    font-family: 'Cormorant Garamond';
+}
+
+.scroll-float-text {
+    display: inline-block;
+    font-size: clamp(1.6rem, 8vw, 10rem); /* Responsive size */
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 900; /* Now this will work */
+}
+
+.char {
+    display: inline-block;
+}

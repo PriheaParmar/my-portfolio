@@ -1,0 +1,22 @@
+.rotating-word {
+  display: inline-block;
+  min-width: 18ch;
+  color: #ffffff;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease;
+  will-change: transform, opacity, filter;
+}
+
+.rotating-word.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.rotating-word.hide {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(8px);
+}

@@ -1,0 +1,13 @@
+
+
+.project{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height: 90vh;
+}
+.project-container{
+    padding-top: 18vh;
+}
+#infinite-grid-menu-canvas{
+    background: red;
+}

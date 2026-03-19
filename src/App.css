@@ -1,0 +1,7 @@
+/* App-level overrides (global defaults live in src/index.css) */
+
+.projects-section,
+.contact-section {
+  position: relative;
+  z-index: 1;
+}

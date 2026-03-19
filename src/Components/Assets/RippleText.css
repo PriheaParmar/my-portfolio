@@ -1,0 +1,25 @@
+/*----------------[RippleText.css]-----------*/
+
+.quake-text {
+    display: flex;
+    gap: 6px;
+    white-space: 10px;
+    justify-content: right;
+    align-items: right;
+    flex-wrap: wrap;
+    padding: 1rem;
+    text-align: right;
+    letter-spacing: -7px;
+    word-break: break-word;
+}
+
+.char {
+    transition: transform 0.3s ease, color 0.2s ease;
+    color: #ffffff6e;
+    display: inline;
+    font-weight: 500;
+}
+
+.char:hover {
+    color: #ffff;
+}

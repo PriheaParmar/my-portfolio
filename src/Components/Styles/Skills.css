@@ -1,0 +1,211 @@
+/* ===========[ SKILLS.CSS ]===============*/
+
+.skills {
+    height: 110vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+.heading {
+    padding-top: 10vh;
+}
+.skill-container {
+    padding-top: 30vh;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    align-content: end;
+    z-index: -1;
+}
+button a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    background: linear-gradient(#050505, #050505) padding-box,
+                linear-gradient(to right, #fff, #fff) border-box;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    text-decoration: none;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #121212;
+    background: #050505;
+    transition: all 0.4s ease-in-out;
+}
+button a span {
+    position: relative;
+    z-index: 2;
+}
+button a:hover {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(#050505, #050505) padding-box,
+        linear-gradient(to right, #F7374F, #522546) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: white;
+}
+button a::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% - 12px);
+    background: #050505;
+    transition: 0.3s ease-in-out;
+    transform: scaleY(1);
+}
+button a:hover::before {
+    transform: scaleY(0);
+}
+
+button a::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background: #050505;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(1);
+    transition-delay: 0.5s;
+}
+
+button a:hover::after {
+    transform: scaleX(0);
+}
+button {
+    background-color: none;
+    text-decoration: none;
+    border: none;top: 6px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% - 12px);
+    background: #050505;}
+
+.tech-stack {
+    margin-top: -100vh;
+    position: absolute;
+}
+
+.mysql {
+    position: absolute;
+    margin-top: 42vh;
+    margin-left: 18vw;
+    font-size: 15px;
+}
+
+.css {
+    position: absolute;
+    margin-top: 22vh;
+    margin-left: 36vw;
+    font-size: 15px;
+}
+
+.bootstrap {
+    position: absolute;
+    margin-top: 12vh;
+    margin-left: 25vw;
+    font-size: 10px
+}
+
+.vscode {
+    position: absolute;
+    margin-top: 40vh;
+    margin-left: 49vw;
+    font-size: 15px;
+}
+
+.tail {
+    position: absolute;
+    margin-top: 9vh;
+    margin-left: 38vw;
+    font-size: 10px
+}
+
+.python {
+    position: absolute;
+    margin-top: 52vh;
+    margin-left: 59vw;
+    font-size: 15px;
+}
+
+.flask {
+    position: absolute;
+    margin-top: 45vh;
+    margin-left: 70vw;
+    font-size: 10px;
+}
+
+.django {
+    position: absolute;
+    margin-top: 35vh;
+    margin-left: 62vw;
+    font-size: 10px
+}
+
+.mongo {
+    position: absolute;
+    margin-top: 25vh;
+    margin-left: 45vw;
+    font-size: 15px;
+}
+
+.csharp {
+    position: absolute;
+    margin-top: 15vh;
+    margin-left: 15vw;
+    font-size: 15px;
+}
+
+.postman {
+    position: absolute;
+    margin-top: 30vh;
+    margin-left: 17vw;
+    font-size: 15px;
+}
+
+.html {
+    position: absolute;
+    margin-top: 35vh;
+    margin-left: 30vw;
+    font-size: 15px;
+}
+
+.node {
+    position: absolute;
+    margin-top: 48vh;
+    margin-left: 0vw;
+    font-size: 10px
+}
+
+.react {
+    position: absolute;
+    margin-top: 33vh;
+    margin-left: 7vw;
+    z-index: 1;
+    font-size: 10px
+}
+
+.js  {
+    position: absolute;
+    margin-top: 55vh;
+    margin-left: 10vw;
+    font-size: 15px;
+}
+/* Add floating animation to all buttons */
+.tech-stack button {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
