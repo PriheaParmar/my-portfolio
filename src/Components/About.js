@@ -1,10 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import ScrollFloat from './Assets/ScrollFloat';
 import './Styles/About.css';
 
 function About() {
-  const sectionRef = useRef(null);
-
   const experiences = [
     {
       company: 'Invent Tech',
@@ -13,9 +11,8 @@ function About() {
       location: 'Ahmedabad, India',
       tech: ['Python', 'Flask', 'JavaScript', 'ERP'],
       points: [
-        'Worked on startup products including a branding website and ERP application.',
-        'Built workflow-based features with frontend and backend logic.',
-        'Focused on creating clean, functional, and modern user experiences.',
+        'Built startup products including a branding website and ERP workflows.',
+        'Worked across frontend and backend to create clean, functional experiences.',
       ],
     },
     {
@@ -25,9 +22,8 @@ function About() {
       location: 'Ahmedabad, India',
       tech: ['React', 'APIs', 'Responsive UI'],
       points: [
-        'Built interactive web applications and reusable frontend modules.',
-        'Collaborated with teams to improve usability and product flow.',
-        'Integrated APIs and delivered polished real-world web features.',
+        'Built interactive web apps and reusable frontend modules.',
+        'Improved usability and delivered polished production-ready features.',
       ],
     },
     {
@@ -37,9 +33,8 @@ function About() {
       location: 'Ahmedabad, India',
       tech: ['HTML', 'CSS', 'JavaScript'],
       points: [
-        'Created responsive frontend modules and reusable UI components.',
-        'Assisted with debugging, testing, and feature improvements.',
-        'Improved UI consistency and responsiveness across pages.',
+        'Created responsive UI components and improved page consistency.',
+        'Supported debugging, testing, and feature improvements.',
       ],
     },
     {
@@ -50,78 +45,54 @@ function About() {
       tech: ['Python', 'PHP', 'MySQL'],
       points: [
         'Built internal web interfaces and backend-connected pages.',
-        'Worked on authentication logic and structured database interactions.',
-        'Improved functionality, testing, and overall delivery flow.',
+        'Worked with authentication logic and database interactions.',
       ],
     },
   ];
 
-  useEffect(() => {
-    const steps = sectionRef.current?.querySelectorAll('.experience-step');
-    if (!steps) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.45,
-      }
-    );
-
-    steps.forEach((step) => observer.observe(step));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className="about experience-section" id="experience" ref={sectionRef}>
+    <section className="about timeline-section" id="experience">
       <div className="heading">
         <ScrollFloat
-          className="heading-about"
-          animationDuration={1}
-          ease="back.inOut(2)"
-          scrollStart="center bottom+=50%"
-          scrollEnd="bottom bottom-=40%"
-          stagger={0.03}
-        >
-          Experience
-        </ScrollFloat>
+  className="heading-about"
+  animationDuration={1}
+  ease="back.inOut(2)"
+  scrollStart="center bottom+=50%"
+  scrollEnd="bottom bottom-=40%"
+  stagger={0.03}
+  style={{ color: "white" }}
+>
+  Experience
+</ScrollFloat>
       </div>
 
-      <p className="experience-intro">
-        Scroll through the roles where I built products, improved interfaces,
-        and grew as a developer.
+      <p className="timeline-intro">
+        A compact timeline of the roles where I learned, built, and grew as a developer.
       </p>
 
-      <div className="experience-steps">
+      <div className="timeline-list">
         {experiences.map((item, index) => (
-          <div className="experience-step" key={index}>
-            <article className="experience-card">
-              <span className="experience-number">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+          <div className="timeline-item" key={index}>
+            <div className="timeline-date">
+              <span>{item.duration}</span>
+            </div>
 
-              <div className="experience-card-top">
+            <div className="timeline-track">
+              <span className="timeline-dot" />
+              {index !== experiences.length - 1 && <span className="timeline-line" />}
+            </div>
+
+            <article className="timeline-card">
+              <div className="timeline-card-top">
                 <div>
-                  <p className="experience-eyebrow">Experience</p>
                   <h3>{item.role}</h3>
                   <h4>{item.company}</h4>
                 </div>
 
-                <div className="experience-meta">
-                  <span>{item.duration}</span>
-                  <span>{item.location}</span>
-                </div>
+                <span className="timeline-location">{item.location}</span>
               </div>
 
-              <div className="experience-tech">
+              <div className="timeline-tech">
                 {item.tech.map((tech, i) => (
                   <span key={i}>{tech}</span>
                 ))}

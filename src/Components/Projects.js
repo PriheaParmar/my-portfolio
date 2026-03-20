@@ -1,46 +1,129 @@
-import React, { Suspense } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Styles/Project.css';
-
-const InfiniteMenu = React.lazy(() => import('./Assets/InfiniteMenu'));
 
 const items = [
   {
     image: 'https://c0.wallpaperflare.com/preview/136/42/382/gray-galaxy.jpg',
     link: 'https://sppacee-h.vercel.app/',
     title: 'SpaceH',
-    description: 'A universe of space wonders by me.',
+    description: 'A universe of space wonders designed and built by me.',
   },
   {
     image: 'https://m.media-amazon.com/images/I/51-WOQHsWOL.jpg',
     link: 'https://verdecer.vercel.app/',
     title: 'Verdecer',
-    description: 'Nature-inspired. Tech-powered. Created by me..',
+    description: 'Nature-inspired visuals blended with a clean modern web experience.',
   },
   {
     image: 'https://images.pexels.com/photos/10585474/pexels-photo-10585474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     link: 'https://lamborghini-x.vercel.app/',
     title: 'LamborghiniX',
-    description: 'Luxury, speed, and my creative flair',
+    description: 'A luxury-inspired experience focused on speed, style, and interaction.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: 'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?q=80&w=1974&auto=format&fit=crop',
     link: 'https://google.com/',
     title: 'LegalBot',
-    description: 'Legal help simplified. Built by me.',
+    description: 'An AI-powered legal assistant that makes guidance feel simpler and smarter.',
   },
 ];
 
 function Projects() {
+  const sectionRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const triggers = sectionRef.current?.querySelectorAll('.project-trigger');
+    if (!triggers?.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setActiveIndex(index);
+          }
+        });
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+
+    triggers.forEach((trigger) => observer.observe(trigger));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="project" data-aos="fade-up">
-      <div className="project-container">
-        <div style={{ height: '570px', position: 'relative' }}>
-          <Suspense fallback={<div style={{ padding: 24 }}>Loading…</div>}>
-            <InfiniteMenu items={items} />
-          </Suspense>
+    <section className="project" id="projects" ref={sectionRef}>
+      <div className="project-header">
+        <p className="project-eyebrow">Selected Work</p>
+        <h2 className="project-title">Projects in the Spotlight</h2>
+        <p className="project-subtext">
+          Each project steps into focus one by one as you scroll.
+        </p>
+      </div>
+
+      <div className="project-scroll-area">
+        <div className="project-stage">
+          <span className="stage-star stage-star-left" />
+          <span className="stage-star stage-star-right" />
+
+          <div className="project-card-stack">
+            {items.map((item, index) => {
+              const state =
+                index === activeIndex
+                  ? 'active'
+                  : index < activeIndex
+                  ? 'past'
+                  : 'next';
+
+              return (
+                <article
+                  key={item.title}
+                  className={`project-card ${state}`}
+                >
+                  <span className="stage-count">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <div className="project-image-wrap">
+                    <img src={item.image} alt={item.title} loading="lazy" />
+                  </div>
+
+                  <div className="project-info">
+                    <p className="project-kicker">Featured Project</p>
+                    <h3>{item.title}</h3>
+                    <p className="project-description">{item.description}</p>
+
+                    <a
+                      className="project-link"
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View Project
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="project-triggers">
+          {items.map((item, index) => (
+            <div
+              key={item.title}
+              className="project-trigger"
+              data-index={index}
+              aria-hidden="true"
+            />
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
