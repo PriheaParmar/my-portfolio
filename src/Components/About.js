@@ -75,21 +75,20 @@ function About() {
 
         <div className="experience-right">
           <div className="timeline-list">
-            {experiences.map((item, index) => (
-              <div className="timeline-item" key={index}>
-                <div className="timeline-track">
-                  <span className="timeline-dot" />
-                  {index !== experiences.length - 1 && <span className="timeline-line" />}
-                </div>
+            {experiences.map((item, index) => {
+              const displayNumber = String(experiences.length - index).padStart(2, '0');
 
-                <article className="timeline-card">
+              return (
+                <article className="timeline-card" key={index}>
+                  <span className="timeline-watermark">{displayNumber}</span>
+
+                  <div className="timeline-card-frame frame-top" />
+                  <div className="timeline-card-frame frame-bottom" />
+
                   <div className="timeline-card-head">
-                    <div className="timeline-card-left">
-                      <span className="timeline-card-index">0{index + 1}</span>
-                      <div className="timeline-title-block">
-                        <h3>{item.role}</h3>
-                        <h4>{item.company}</h4>
-                      </div>
+                    <div className="timeline-title-block">
+                      <span className="timeline-company">{item.company}</span>
+                      <h3>{item.role}</h3>
                     </div>
 
                     <div className="timeline-meta">
@@ -100,7 +99,7 @@ function About() {
 
                   <div className="timeline-stackline">
                     <span className="stack-title">Stack</span>
-                    <p>{item.tech.join('  /  ')}</p>
+                    <p>{item.tech.join(' • ')}</p>
                   </div>
 
                   <ul>
@@ -109,8 +108,8 @@ function About() {
                     ))}
                   </ul>
                 </article>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
