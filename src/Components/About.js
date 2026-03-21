@@ -6,24 +6,24 @@ function About() {
   const experiences = [
     {
       company: 'Invent Tech',
-      role: 'Software Developer (Project-Based)',
+      role: 'Software Developer',
       duration: 'Jan 2026 – Present',
-      location: 'Ahmedabad, India',
+      location: 'Remote',
       tech: ['Python', 'Flask', 'JavaScript', 'ERP'],
       points: [
-        'Built startup products including a branding website and ERP workflows.',
-        'Worked across frontend and backend to create clean, functional experiences.',
+        'Worked on startup products from idea to usable product.',
+        'Built web flows and backend logic for branding and ERP needs.',
       ],
     },
     {
       company: 'Devam Technologies',
       role: 'Web Developer',
-      duration: 'Jun 2025 – Present',
+      duration: 'Jun 2025 – Mar 2026',
       location: 'Ahmedabad, India',
-      tech: ['React', 'APIs', 'Responsive UI'],
+      tech: ['React', 'REST APIs', 'Responsive UI'],
       points: [
-        'Built interactive web apps and reusable frontend modules.',
-        'Improved usability and delivered polished production-ready features.',
+        'Built responsive pages and reusable frontend components.',
+        'Shipped polished features with cleaner UI and better usability.',
       ],
     },
     {
@@ -33,8 +33,8 @@ function About() {
       location: 'Ahmedabad, India',
       tech: ['HTML', 'CSS', 'JavaScript'],
       points: [
-        'Created responsive UI components and improved page consistency.',
-        'Supported debugging, testing, and feature improvements.',
+        'Supported frontend development, testing, and UI consistency.',
+        'Improved layouts, responsiveness, and debugging workflows.',
       ],
     },
     {
@@ -44,68 +44,75 @@ function About() {
       location: 'Ahmedabad, India',
       tech: ['Python', 'PHP', 'MySQL'],
       points: [
-        'Built internal web interfaces and backend-connected pages.',
-        'Worked with authentication logic and database interactions.',
+        'Built internal web pages connected with backend systems.',
+        'Worked on authentication, data handling, and stability fixes.',
       ],
     },
   ];
 
   return (
-    <section className="about timeline-section" id="experience">
-      <div className="heading">
-        <ScrollFloat
-  className="heading-about"
-  animationDuration={1}
-  ease="back.inOut(2)"
-  scrollStart="center bottom+=50%"
-  scrollEnd="bottom bottom-=40%"
-  stagger={0.03}
-  style={{ color: "white" }}
->
-  Experience
-</ScrollFloat>
-      </div>
+    <section className="about experience-section" id="experience">
+      <div className="experience-layout">
+        <div className="experience-left">
+          <div className="experience-left-inner">
+            <ScrollFloat
+              className="heading-about"
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              style={{ color: 'white' }}
+            >
+              Experience
+            </ScrollFloat>
 
-      <p className="timeline-intro">
-        A compact timeline of the roles where I learned, built, and grew as a developer.
-      </p>
+            <p className="timeline-intro">
+              Places where I built, learned, and grew through real work.
+            </p>
+          </div>
+        </div>
 
-      <div className="timeline-list">
-        {experiences.map((item, index) => (
-          <div className="timeline-item" key={index}>
-            <div className="timeline-date">
-              <span>{item.duration}</span>
-            </div>
-
-            <div className="timeline-track">
-              <span className="timeline-dot" />
-              {index !== experiences.length - 1 && <span className="timeline-line" />}
-            </div>
-
-            <article className="timeline-card">
-              <div className="timeline-card-top">
-                <div>
-                  <h3>{item.role}</h3>
-                  <h4>{item.company}</h4>
+        <div className="experience-right">
+          <div className="timeline-list">
+            {experiences.map((item, index) => (
+              <div className="timeline-item" key={index}>
+                <div className="timeline-track">
+                  <span className="timeline-dot" />
+                  {index !== experiences.length - 1 && <span className="timeline-line" />}
                 </div>
 
-                <span className="timeline-location">{item.location}</span>
-              </div>
+                <article className="timeline-card">
+                  <div className="timeline-card-head">
+                    <div className="timeline-card-left">
+                      <span className="timeline-card-index">0{index + 1}</span>
+                      <div className="timeline-title-block">
+                        <h3>{item.role}</h3>
+                        <h4>{item.company}</h4>
+                      </div>
+                    </div>
 
-              <div className="timeline-tech">
-                {item.tech.map((tech, i) => (
-                  <span key={i}>{tech}</span>
-                ))}
-              </div>
+                    <div className="timeline-meta">
+                      <span className="timeline-duration">{item.duration}</span>
+                      <span className="timeline-location">{item.location}</span>
+                    </div>
+                  </div>
 
-              <ul>
-                {item.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </article>
+                  <div className="timeline-stackline">
+                    <span className="stack-title">Stack</span>
+                    <p>{item.tech.join('  /  ')}</p>
+                  </div>
+
+                  <ul>
+                    {item.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

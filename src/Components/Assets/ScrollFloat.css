@@ -1,15 +1,15 @@
 .scroll-float {
     overflow: hidden;
-    font-family: 'Cormorant Garamond';
+    
 }
 
 .scroll-float-text {
     color: white;
     display: inline-block;
-    font-size: clamp(1.6rem, 8vw, 10rem); /* Responsive size */
+    font-size: clamp(1.4rem, 6vw, 8rem); /* Responsive size */
     text-align: center;
     line-height: 1.5;
-    font-weight: 900; /* Now this will work */
+    font-weight: 600; /* Now this will work */
 }
 
 .char {
