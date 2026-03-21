@@ -2,6 +2,7 @@ import React from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './Styles/Home.css';
 import RotatingText from './Assets/RotatingText';
+import Button from './Assets/Buttonhom';
 
 const Home = () => {
   return (
@@ -12,30 +13,17 @@ const Home = () => {
       <div className="hero-light hero-light-2"></div>
 
       <div className="home-page-inner">
-        <div className="hero-visual-wrap">
-          <div className="hero-orbit hero-orbit-1"></div>
-          <div className="hero-orbit hero-orbit-2"></div>
-
-          <div className="hero-lottie-shell">
-            <DotLottieReact
-              className="hero-lottie"
-              src="https://lottie.host/f36dc3ca-9393-4914-8c76-b8e2693f35f1/D73QSta52O.lottie"
-              loop
-              autoplay
-            />
-          </div>
-        </div>
-
         <div className="welcome-text">
-          <p className="hero-kicker reveal-line reveal-1">
-            Creative Developer • Full Stack • Based in India
 
-          </p>
+
           <h1 className="hero-main-title reveal-mask reveal-2">
-            Hello! I’m Priya,
+            <span className="hero-name-stack">
+              <span className="hero-name-back">Hello! I’m Priya,</span>
+              <span className="hero-name-front">Hello! I’m Priya,</span>
+            </span>
             <br />
             <span className="no-break">
-              I design and develop <RotatingText />
+              <span className='cursive'> I Design and Develop </span><span className='hero-main-title rotate'><RotatingText /> </span>
             </span>
           </h1>
 
@@ -45,18 +33,25 @@ const Home = () => {
           </p>
 
           <div className="hero-actions reveal-line reveal-4">
-
-
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-btn hero-btn-secondary"
             >
-              View Resume
+               <Button></Button>
             </a>
+          </div>
+        </div>
 
+        <div className="hero-visual-wrap">
 
+          <div className="hero-lottie-shell">
+            <DotLottieReact style={{ height: '650px', width: '650px', zIndex: '2000', opacity: '70%', transform: 'ScaleX(-1)' }}
+              className="hero-lottie"
+              src="https://lottie.host/49e81a9c-f9bc-4050-92ef-e24a1cbfaf2f/Oa7l3AESht.lottie"
+              loop
+              autoplay
+            />
           </div>
         </div>
       </div>

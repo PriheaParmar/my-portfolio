@@ -1,7 +1,7 @@
 .rotating-word {
   display: inline-block;
   min-width: 18ch;
-  color: #ffffff;
+  color: #ff5d94;
   transition:
     opacity 0.35s ease,
     transform 0.35s ease,
