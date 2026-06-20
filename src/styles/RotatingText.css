@@ -1,0 +1,23 @@
+.rotating-word {
+  display: inline-block;
+  min-width: 18ch;
+  color: #ff5d94;
+  animation: wordReveal 0.45s ease both;
+}
+
+@keyframes wordReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-word {
+    animation: none;
+  }
+}

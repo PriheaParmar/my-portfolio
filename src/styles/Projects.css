@@ -1,0 +1,835 @@
+/* ─── Section shell ─────────────────────────────────────────────────────── */
+.project {
+  position: relative;
+  margin: 0;
+  padding: 5vh 0 8vh;
+  content-visibility: auto;
+  contain-intrinsic-size: 960px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.project-header {
+  max-width: 900px;
+  margin: 0 auto 1.55rem;
+  padding: 0 7vw;
+  text-align: center;
+}
+
+.project-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.55rem;
+  color: rgba(255, 128, 198, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font: 700 0.7rem/1 'Proza Libre', sans-serif;
+}
+
+.project-eyebrow::before,
+.project-eyebrow::after {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 128, 198, 0.82));
+}
+
+.project-eyebrow::after {
+  background: linear-gradient(90deg, rgba(255, 128, 198, 0.82), transparent);
+}
+
+.project-title {
+  margin: 0;
+  color: #fff;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 4.5vw, 4.35rem);
+  line-height: 1.02;
+  text-shadow:
+    0 0 28px rgba(255, 61, 122, 0.36),
+    0 0 60px rgba(255, 61, 122, 0.18);
+}
+
+/* ─── Universe canvas ────────────────────────────────────────────────────── */
+.project-universe {
+  --sun-size: clamp(245px, 20vw, 330px);
+  --orbit-center-x: clamp(138px, 10.6vw, 188px);
+  --orbit-center-y: 52%;
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  min-height: clamp(760px, 84vh, 940px);
+  overflow: hidden;
+  transform: translateX(-50%);
+  background: transparent;
+  isolation: isolate;
+  contain: layout paint style;
+}
+
+.project-universe::before,
+.project-universe::after,
+.space-depth {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.project-universe::before {
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 12% 52%, rgba(255, 47, 117, 0.14), transparent 70%),
+    radial-gradient(ellipse 44% 40% at 70% 35%, rgba(163, 93, 255, 0.08), transparent 70%),
+    radial-gradient(ellipse 30% 30% at 86% 72%, rgba(67, 211, 255, 0.05), transparent 70%),
+    radial-gradient(ellipse 80% 30% at 50% 100%, rgba(255, 47, 117, 0.06), transparent 70%);
+}
+
+.project-universe::after {
+  z-index: 24;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.28) 0%,
+    transparent 10%,
+    transparent 88%,
+    rgba(0, 0, 0, 0.14) 100%
+  );
+}
+
+/* Dense star field */
+.space-depth {
+  z-index: 0;
+  background:
+    radial-gradient(circle at 5%  8%,  rgba(255, 178, 224, 0.90) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 12% 34%, rgba(255, 255, 255, 0.55)  0 0.9px, transparent 2px),
+    radial-gradient(circle at 18% 18%, rgba(255, 178, 224, 0.70)  0 1.0px, transparent 2px),
+    radial-gradient(circle at 23% 72%, rgba(206, 168, 255, 0.60)  0 1.0px, transparent 2px),
+    radial-gradient(circle at 29% 52%, rgba(255, 255, 255, 0.40)  0 0.8px, transparent 2px),
+    radial-gradient(circle at 36% 66%, rgba(255, 255, 255, 0.55)  0 1.0px, transparent 2px),
+    radial-gradient(circle at 43% 14%, rgba(200, 230, 255, 0.50)  0 0.9px, transparent 2px),
+    radial-gradient(circle at 47% 88%, rgba(255, 178, 224, 0.45)  0 0.8px, transparent 2px),
+    radial-gradient(circle at 53% 42%, rgba(255, 255, 255, 0.38)  0 0.7px, transparent 2px),
+    radial-gradient(circle at 59% 22%, rgba(206, 168, 255, 0.65)  0 1.1px, transparent 2px),
+    radial-gradient(circle at 64% 77%, rgba(255, 255, 255, 0.35)  0 0.8px, transparent 2px),
+    radial-gradient(circle at 71% 55%, rgba(200, 220, 255, 0.42)  0 0.9px, transparent 2px),
+    radial-gradient(circle at 76% 10%, rgba(255, 220, 240, 0.55)  0 1.0px, transparent 2px),
+    radial-gradient(circle at 79% 72%, rgba(112, 226, 255, 0.50)  0 1.0px, transparent 2px),
+    radial-gradient(circle at 83% 38%, rgba(255, 255, 255, 0.38)  0 0.8px, transparent 2px),
+    radial-gradient(circle at 88% 60%, rgba(255, 200, 230, 0.48)  0 0.9px, transparent 2px),
+    radial-gradient(circle at 92% 28%, rgba(255, 255, 255, 0.55)  0 1.0px, transparent 2px),
+    radial-gradient(circle at 95% 82%, rgba(180, 160, 255, 0.45)  0 0.9px, transparent 2px),
+    radial-gradient(circle at 97% 50%, rgba(255, 255, 255, 0.30)  0 0.7px, transparent 2px);
+  opacity: 1;
+}
+
+/* Shooting stars */
+.shooting-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shooting-star {
+  position: absolute;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 40%, rgba(255, 100, 180, 0.8));
+  opacity: 0;
+  animation: shoot var(--shoot-dur) var(--shoot-delay) linear infinite;
+}
+
+.shooting-star:nth-child(1) { top: 8%;  left: 60%; width: 120px; --shoot-dur: 2.8s; --shoot-delay: 0.0s; transform: rotate(-20deg); }
+.shooting-star:nth-child(2) { top: 22%; left: 78%; width:  90px; --shoot-dur: 3.4s; --shoot-delay: 1.2s; transform: rotate(-18deg); }
+.shooting-star:nth-child(3) { top: 5%;  left: 40%; width: 140px; --shoot-dur: 4.1s; --shoot-delay: 2.6s; transform: rotate(-22deg); }
+.shooting-star:nth-child(4) { top: 14%; left: 85%; width:  70px; --shoot-dur: 2.4s; --shoot-delay: 4.0s; transform: rotate(-16deg); }
+.shooting-star:nth-child(5) { top: 3%;  left: 55%; width: 110px; --shoot-dur: 3.8s; --shoot-delay: 5.5s; transform: rotate(-24deg); }
+
+@keyframes shoot {
+  0%   { opacity: 0;   transform: translateX(0) rotate(var(--r,0deg)); }
+  5%   { opacity: 1; }
+  50%  { opacity: 0.6; }
+  100% { opacity: 0;   transform: translateX(-380px) rotate(var(--r,0deg)); }
+}
+
+/* ─── Sun ────────────────────────────────────────────────────────────────── */
+.project-sun {
+  position: absolute;
+  left: var(--orbit-center-x);
+  top: var(--orbit-center-y);
+  z-index: 9;
+  width: var(--sun-size);
+  height: var(--sun-size);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.sun-aura,
+.sun-ring,
+.sun-body,
+.sun-core,
+.sun-shine,
+.sun-pulse {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.sun-aura {
+  inset: -38%;
+  background:
+    radial-gradient(circle,
+      rgba(255, 61, 122, 0.32) 0%,
+      rgba(163, 93, 255, 0.18) 34%,
+      rgba(255, 61, 122, 0.06) 55%,
+      transparent 74%
+    );
+  animation: sunPulse 5s ease-in-out infinite;
+}
+
+.sun-pulse {
+  inset: -18%;
+  background: radial-gradient(circle, rgba(255, 93, 148, 0.22), transparent 65%);
+  animation: sunPulse 7s ease-in-out infinite reverse;
+}
+
+.sun-ring-one {
+  inset: 6%;
+  border: 1.5px solid rgba(255, 180, 220, 0.38);
+  transform: rotate(-16deg) scaleX(1.28) scaleY(0.62);
+  background: linear-gradient(90deg, transparent, rgba(255, 138, 205, 0.10), transparent);
+}
+
+.sun-ring-two {
+  inset: 14%;
+  border: 1px solid rgba(182, 128, 255, 0.32);
+  transform: rotate(18deg) scaleX(1.44) scaleY(0.56);
+}
+
+.sun-body {
+  inset: 16%;
+  border: 1px solid rgba(255, 232, 247, 0.42);
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.92) 0 7%, rgba(255, 229, 246, 0.54) 8% 17%, transparent 30%),
+    radial-gradient(circle at 65% 72%, rgba(122, 62, 230, 0.38), transparent 44%),
+    linear-gradient(138deg,
+      rgba(255, 236, 248, 0.86),
+      rgba(255, 61, 122, 0.78) 38%,
+      rgba(163, 93, 255, 0.68) 70%,
+      rgba(67, 0, 120, 0.72)
+    );
+  backdrop-filter: blur(12px) saturate(1.3);
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  box-shadow:
+    inset 14px 14px 26px rgba(255, 255, 255, 0.18),
+    inset -16px -16px 32px rgba(24, 6, 52, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.10),
+    0 0 28px rgba(255, 61, 122, 0.38),
+    0 0 70px rgba(163, 93, 255, 0.24),
+    0 0 120px rgba(255, 61, 122, 0.12);
+  animation: sunBodyBreath 9s ease-in-out infinite;
+}
+
+.sun-core {
+  inset: 32%;
+  background:
+    radial-gradient(circle at 38% 32%,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 220, 244, 0.65) 24%,
+      rgba(255, 61, 122, 0.52) 54%,
+      rgba(122, 62, 230, 0.44)
+    );
+  box-shadow:
+    0 0 22px rgba(255, 226, 245, 0.50),
+    0 0 52px rgba(255, 61, 122, 0.30);
+}
+
+.sun-shine {
+  inset: 16%;
+  background:
+    conic-gradient(
+      from 20deg,
+      transparent 0 12%,
+      rgba(255, 241, 250, 0.28) 13% 14%,
+      transparent 15% 36%,
+      rgba(255, 61, 122, 0.22) 37% 38%,
+      transparent 39% 62%,
+      rgba(255, 255, 255, 0.22) 63% 64%,
+      transparent 65% 82%,
+      rgba(200, 130, 255, 0.18) 83% 84%,
+      transparent 85% 100%
+    );
+  opacity: 0.52;
+  mix-blend-mode: screen;
+  animation: sunShineRotate 22s linear infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1);    opacity: 0.95; }
+  50%       { transform: scale(1.06); opacity: 0.75; }
+}
+
+@keyframes sunBodyBreath {
+  0%, 100% { box-shadow: inset 14px 14px 26px rgba(255,255,255,0.18), inset -16px -16px 32px rgba(24,6,52,0.42), 0 0 28px rgba(255,61,122,0.38), 0 0 70px rgba(163,93,255,0.24), 0 0 120px rgba(255,61,122,0.12); }
+  50%       { box-shadow: inset 14px 14px 26px rgba(255,255,255,0.18), inset -16px -16px 32px rgba(24,6,52,0.42), 0 0 44px rgba(255,61,122,0.55), 0 0 90px rgba(163,93,255,0.34), 0 0 160px rgba(255,61,122,0.18); }
+}
+
+@keyframes sunShineRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Orbit lines ────────────────────────────────────────────────────────── */
+.project-orbits,
+.project-planets {
+  position: absolute;
+  inset: 0;
+}
+
+.project-orbits {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project-planets {
+  z-index: 7;
+}
+
+.orbit-line,
+.project-orbit-shell {
+  position: absolute;
+  left: var(--orbit-center-x);
+  top: var(--orbit-center-y);
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-line {
+  border: 1px solid rgba(255, 61, 122, 0.16);
+  border-left-color:  rgba(255, 61, 122, 0.26);
+  border-top-color:   rgba(255, 93, 148, 0.20);
+  border-right-color: rgba(163, 93, 255, 0.12);
+  opacity: 0.88;
+  box-shadow:
+    inset 0 0 18px rgba(255, 61, 122, 0.024),
+    0 0 12px rgba(163, 93, 255, 0.04);
+}
+
+.orbit-line:nth-child(2n) {
+  border-color: rgba(255, 93, 148, 0.14);
+  border-right-color: rgba(163, 93, 255, 0.13);
+}
+
+.orbit-line:nth-child(3n) {
+  border-style: dashed;
+  border-color: rgba(200, 130, 255, 0.14);
+}
+
+/* ─── Orbit shells ───────────────────────────────────────────────────────── */
+.project-orbit-shell {
+  z-index: 8;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(var(--orbit-angle));
+  transform-origin: 50% 50%;
+  animation: orbit-spin var(--orbit-speed) linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.project-orbit-shell.reverse {
+  animation-name: orbit-spin-reverse;
+}
+
+.project-orbit-shell.is-hovered,
+.project-orbit-shell.is-hovered .project-planet-node {
+  animation-play-state: paused;
+}
+
+.project-orbit-shell.is-focused {
+  z-index: 36;
+  animation: none;
+  transform: translate(-50%, -50%) rotate(var(--focus-angle));
+}
+
+.project-orbit-shell.is-focused .project-planet-node {
+  animation: none;
+  transform: translate(50%, -50%) rotate(calc(var(--focus-angle) * -1));
+}
+
+.project-planet-node {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: var(--planet-size);
+  height: var(--planet-size);
+  pointer-events: auto;
+  transform: translate(50%, -50%) rotate(calc(var(--orbit-angle) * -1));
+  transform-origin: 50% 50%;
+  animation: orbit-counter-spin var(--orbit-speed) linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.project-orbit-shell.reverse .project-planet-node {
+  animation-name: orbit-counter-spin-reverse;
+}
+
+.project-planet-node:hover,
+.project-planet-node:focus-within {
+  z-index: 70;
+}
+
+/* ─── Planet button ──────────────────────────────────────────────────────── */
+.project-planet {
+  position: relative;
+  display: block;
+  width: var(--planet-size);
+  height: var(--planet-size);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.project-planet:focus-visible {
+  outline: 2px solid rgba(255, 61, 122, 0.95);
+  outline-offset: 8px;
+}
+
+.planet-atmosphere,
+.planet-orb,
+.planet-ring,
+.planet-shine,
+.planet-band {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.planet-atmosphere {
+  inset: -22%;
+  background: radial-gradient(circle, var(--planet-glow), transparent 60%);
+  opacity: 0.72;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.project-planet:hover .planet-atmosphere,
+.project-planet.active .planet-atmosphere {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.planet-orb {
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.72) 0 5%, transparent 22%),
+    radial-gradient(circle at 66% 70%, rgba(0, 0, 0, 0.28), transparent 45%),
+    linear-gradient(135deg,
+      var(--planet-color-a, rgba(255,226,245,0.95)),
+      var(--planet-color-b, rgba(255,104,188,0.72)) 50%,
+      var(--planet-color-c, rgba(146,87,255,0.5))
+    );
+  box-shadow:
+    inset 4px 4px 8px rgba(255, 255, 255, 0.22),
+    inset -4px -4px 10px rgba(0, 0, 0, 0.44),
+    0 0 12px var(--planet-glow),
+    0 0 28px var(--planet-glow);
+  transition: box-shadow 0.3s ease;
+}
+
+.project-planet.active .planet-orb,
+.project-planet:hover .planet-orb {
+  box-shadow:
+    inset 4px 4px 8px rgba(255, 255, 255, 0.28),
+    inset -4px -4px 10px rgba(0, 0, 0, 0.44),
+    0 0 18px var(--planet-glow),
+    0 0 46px var(--planet-glow),
+    0 0 80px var(--planet-glow);
+}
+
+.planet-band {
+  inset: 28% -5% 50%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  transform: rotate(-8deg) scaleX(1.08) scaleY(0.5);
+}
+
+.planet-ring {
+  inset: -8%;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  transform: rotate(-28deg) scaleX(1.6) scaleY(0.42);
+  background: linear-gradient(90deg, transparent 20%, rgba(255, 200, 235, 0.10) 40%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-planet.active .planet-ring,
+.project-planet:hover .planet-ring {
+  opacity: 1;
+}
+
+.planet-shine {
+  inset: 8% 20% 60% 8%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.72), transparent 66%);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+/* ─── Detail card ────────────────────────────────────────────────────────── */
+.planet-detail-card {
+  position: absolute;
+  z-index: 60;
+  width: min(310px, 88vw);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 61, 122, 0.20);
+  background:
+    linear-gradient(145deg,
+      rgba(14, 6, 30, 0.92),
+      rgba(24, 10, 48, 0.88)
+    );
+  backdrop-filter: blur(18px) saturate(1.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(255, 61, 122, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s ease,
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.planet-detail-card[data-side='right'] {
+  left: calc(100% + 18px);
+  top: 50%;
+  transform: translate(0, -50%) scale(0.94);
+}
+
+.planet-detail-card[data-side='left'] {
+  right: calc(100% + 18px);
+  top: 50%;
+  transform: translate(0, -50%) scale(0.94);
+}
+
+.planet-detail-card[data-side='top'] {
+  left: 50%;
+  bottom: calc(100% + 18px);
+  transform: translate(-50%, 10px) scale(0.94);
+}
+
+.planet-detail-card[data-side='bottom'] {
+  left: 50%;
+  top: calc(100% + 18px);
+  transform: translate(-50%, -10px) scale(0.94);
+}
+
+.project-orbit-shell.is-focused .planet-detail-card,
+.project-planet-node:hover .planet-detail-card,
+.project-planet-node:focus-within .planet-detail-card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.project-orbit-shell.is-focused .planet-detail-card[data-side='right'],
+.project-planet-node:hover .planet-detail-card[data-side='right'],
+.project-planet-node:focus-within .planet-detail-card[data-side='right'],
+.project-orbit-shell.is-focused .planet-detail-card[data-side='left'],
+.project-planet-node:hover .planet-detail-card[data-side='left'],
+.project-planet-node:focus-within .planet-detail-card[data-side='left'] {
+  transform: translate(0, -50%) scale(1);
+}
+
+.project-orbit-shell.is-focused .planet-detail-card[data-side='top'],
+.project-planet-node:hover .planet-detail-card[data-side='top'],
+.project-planet-node:focus-within .planet-detail-card[data-side='top'],
+.project-orbit-shell.is-focused .planet-detail-card[data-side='bottom'],
+.project-planet-node:hover .planet-detail-card[data-side='bottom'],
+.project-planet-node:focus-within .planet-detail-card[data-side='bottom'] {
+  transform: translate(-50%, 0) scale(1);
+}
+
+.detail-card-media {
+  position: relative;
+  height: 132px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.detail-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 20%, rgba(10, 5, 24, 0.82)),
+    linear-gradient(90deg, rgba(255, 61, 122, 0.06), transparent 60%);
+}
+
+.detail-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+  transform: scale(1.04);
+  transition: transform 0.5s ease;
+}
+
+.project-planet-node:hover .detail-card-media img {
+  transform: scale(1.0);
+}
+
+.detail-card-content {
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.detail-card-content > span {
+  display: inline-flex;
+  margin-bottom: 0.44rem;
+  color: rgba(255, 93, 148, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font: 700 0.62rem/1 'Proza Libre', sans-serif;
+}
+
+.detail-card-content h3 {
+  margin: 0;
+  color: #fff;
+  letter-spacing: -0.03em;
+  font: 700 1.26rem/1.1 'Proza Libre', sans-serif;
+}
+
+.detail-card-content p {
+  margin: 0.52rem 0 0.88rem;
+  color: rgba(255, 255, 255, 0.70);
+  font: 400 0.82rem/1.55 'Proza Libre', sans-serif;
+}
+
+.detail-card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.detail-card-stack small {
+  padding: 0.28rem 0.48rem;
+  border: 1px solid rgba(255, 61, 122, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 220, 240, 0.90);
+  background: rgba(255, 61, 122, 0.08);
+  font: 700 0.56rem/1 'Proza Libre', sans-serif;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.detail-card-stack small:hover {
+  background: rgba(255, 61, 122, 0.18);
+  border-color: rgba(255, 61, 122, 0.40);
+}
+
+.detail-card-content a,
+.detail-card-content em {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 0.84rem;
+  border: 1px solid rgba(255, 61, 122, 0.36);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 61, 122, 0.14);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font: 700 0.58rem/1 'Proza Libre', sans-serif;
+  transition: background 0.22s, border-color 0.22s, transform 0.18s;
+}
+
+.detail-card-content a:hover {
+  background: rgba(255, 61, 122, 0.30);
+  border-color: rgba(255, 61, 122, 0.60);
+  transform: translateY(-1px);
+}
+
+.detail-card-content em {
+  color: rgba(255, 255, 255, 0.52);
+  font-style: normal;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+/* ─── Nav controls ───────────────────────────────────────────────────────── */
+.project-nav-controls {
+  position: absolute;
+  right: clamp(24px, 5.4vw, 96px);
+  bottom: clamp(24px, 5.2vw, 74px);
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.72rem;
+  padding: 0.42rem 0.48rem;
+  border: 1px solid rgba(255, 61, 122, 0.22);
+  border-radius: 999px;
+  background: rgba(10, 5, 24, 0.58);
+  backdrop-filter: blur(14px) saturate(1.14);
+  -webkit-backdrop-filter: blur(14px) saturate(1.14);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 28px rgba(255, 61, 122, 0.06);
+}
+
+.project-nav-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  color: rgba(255, 244, 251, 0.96);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  font-size: 1.55rem;
+  line-height: 1;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.project-nav-arrow:hover,
+.project-nav-arrow:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 61, 122, 0.50);
+  background: rgba(255, 61, 122, 0.16);
+  outline: none;
+}
+
+.project-nav-status {
+  min-width: min(190px, 22vw);
+  color: rgba(255, 255, 255, 0.88);
+  text-align: center;
+  font-family: 'Proza Libre', sans-serif;
+}
+
+.project-nav-status span,
+.project-nav-status strong {
+  display: block;
+}
+
+.project-nav-status span {
+  margin-bottom: 0.14rem;
+  color: rgba(255, 93, 148, 0.95);
+  letter-spacing: 0.14em;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.project-nav-status strong {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.9);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+/* ─── Mobile list ────────────────────────────────────────────────────────── */
+.project-mobile-list {
+  display: none;
+  margin-top: 2rem;
+  padding: 0 7vw;
+}
+
+.project-mobile-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(255, 61, 122, 0.12);
+}
+
+.project-mobile-card > span:first-child {
+  color: rgba(255, 93, 148, 0.88);
+  font: 700 0.72rem/1 'Proza Libre', sans-serif;
+}
+
+.project-mobile-card h3 {
+  margin: 0;
+  color: #fff;
+  font: 700 1rem/1.2 'Proza Libre', sans-serif;
+}
+
+.project-mobile-card a,
+.project-mobile-disabled {
+  color: rgba(255, 93, 148, 0.95);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font: 700 0.62rem/1 'Proza Libre', sans-serif;
+}
+
+.project-mobile-disabled {
+  opacity: 0.52;
+}
+
+/* ─── Orbit keyframes ────────────────────────────────────────────────────── */
+@keyframes orbit-spin {
+  from { transform: translate(-50%, -50%) rotate(var(--orbit-angle)); }
+  to   { transform: translate(-50%, -50%) rotate(calc(var(--orbit-angle) + 360deg)); }
+}
+
+@keyframes orbit-spin-reverse {
+  from { transform: translate(-50%, -50%) rotate(var(--orbit-angle)); }
+  to   { transform: translate(-50%, -50%) rotate(calc(var(--orbit-angle) - 360deg)); }
+}
+
+@keyframes orbit-counter-spin {
+  from { transform: translate(50%, -50%) rotate(calc(var(--orbit-angle) * -1)); }
+  to   { transform: translate(50%, -50%) rotate(calc((var(--orbit-angle) * -1) - 360deg)); }
+}
+
+@keyframes orbit-counter-spin-reverse {
+  from { transform: translate(50%, -50%) rotate(calc(var(--orbit-angle) * -1)); }
+  to   { transform: translate(50%, -50%) rotate(calc((var(--orbit-angle) * -1) + 360deg)); }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1180px) {
+  .project-header { padding: 0 4.5vw; }
+  .project-universe {
+    --sun-size: clamp(230px, 23vw, 295px);
+    --orbit-center-x: clamp(122px, 9.5vw, 152px);
+  }
+  .project-nav-status { min-width: min(160px, 25vw); }
+  .planet-detail-card { width: min(292px, 82vw); }
+}
+
+@media (max-width: 860px) {
+  .project { padding: 4vh 7vw 7vh; }
+  .project-header { margin-bottom: 1.6rem; padding: 0; }
+  .project-universe { display: none; }
+  .project-mobile-list { display: grid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-orbit-shell,
+  .project-planet-node,
+  .sun-aura,
+  .sun-pulse,
+  .sun-body,
+  .sun-shine,
+  .shooting-star { animation: none; }
+  .project-planet,
+  .planet-atmosphere,
+  .planet-orb,
+  .planet-ring,
+  .planet-detail-card,
+  .project-nav-arrow { transition: none; }
+}

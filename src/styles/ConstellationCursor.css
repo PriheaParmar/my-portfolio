@@ -1,0 +1,41 @@
+.constellation-cursor {
+  --constellation-x: 50vw;
+  --constellation-y: 50vh;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.78;
+  mix-blend-mode: screen;
+}
+
+.constellation-cursor::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      420px circle at var(--constellation-x) var(--constellation-y),
+      rgba(255, 93, 148, 0.08),
+      transparent 58%
+    );
+  opacity: 0.9;
+}
+
+.constellation-cursor canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.constellation-cursor--disabled {
+  display: none;
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .constellation-cursor {
+    display: none;
+  }
+}

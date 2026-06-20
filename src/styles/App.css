@@ -1,0 +1,16 @@
+main {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+main > section {
+  position: relative;
+  z-index: 1;
+}
+
+#projects,
+#contact {
+  position: relative;
+  z-index: 1;
+}
