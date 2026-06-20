@@ -1180,85 +1180,72 @@
   }
 }
 
-/* Final projects polish + mobile cleanup
-   The Projects section reuses the Skills/Lottie layout on desktop, but mobile
-   now shows clean project cards instead of a messy grid of empty bubbles. */
-.skills-stage {
-  min-height: clamp(720px, 80vh, 860px) !important;
-  overflow: visible !important;
-}
-
-.project-orb {
-  cursor: pointer;
-}
-
-.decorative-orb .skill-orb-core {
-  opacity: 0.22;
-  background: rgba(255, 105, 180, 0.025) !important;
-  border-color: rgba(255, 170, 210, 0.10) !important;
-  box-shadow: none !important;
-}
-
-.project-orb .skill-orb-core {
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255, 235, 248, 0.12), transparent 45%),
-    rgba(255, 105, 180, 0.055) !important;
-  border-color: rgba(255, 170, 210, 0.26) !important;
-  box-shadow:
-    0 12px 26px rgba(0, 0, 0, 0.22),
-    0 0 24px rgba(255, 61, 122, 0.09) !important;
-}
-
-.project-orb:hover .skill-orb-core,
-.project-orb:focus-within .skill-orb-core {
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255, 235, 248, 0.17), transparent 45%),
-    rgba(255, 105, 180, 0.095) !important;
-  border-color: rgba(255, 128, 190, 0.48) !important;
-  box-shadow:
-    0 16px 30px rgba(0, 0, 0, 0.28),
-    0 0 30px rgba(255, 61, 122, 0.18) !important;
-}
-
-.project-hover-card {
-  max-width: 300px;
-}
-
-.project-card-description {
-  overflow-wrap: anywhere;
-}
-
+/* ─── Final mobile project showcase repair ────────────────────────────────
+   Desktop keeps the original designer showcase bubbles, including decorative
+   empty bubbles. Mobile keeps the same bubble/Lottie idea, but hides the big
+   hover cards so the section does not become huge or messy. */
 @media (max-width: 900px) {
   .skills-section {
-    margin-left: clamp(16px, 5vw, 30px) !important;
-    margin-right: clamp(16px, 5vw, 30px) !important;
-    padding-top: 7vh !important;
-    padding-bottom: 7vh !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 4.4rem 0 2.8rem !important;
+    overflow: hidden !important;
   }
 
   .skills-header {
-    margin-bottom: 14px !important;
+    position: relative !important;
+    z-index: 20 !important;
+    width: min(100% - 32px, 430px) !important;
+    margin: 0 auto 0.35rem !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .skills-title,
+  .skills-title .scroll-float,
+  .skills-title .scroll-float-text,
+  .skills-title .scroll-float-word,
+  .skills-title .scroll-float-char {
+    overflow: visible !important;
   }
 
   .skills-title {
-    font-size: clamp(2.55rem, 13vw, 4.8rem) !important;
-    line-height: 1.1 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: clamp(2.65rem, 13vw, 4.35rem) !important;
+    line-height: 1.22 !important;
+    padding: 0.08em 0 0.18em !important;
   }
 
   .skills-stage {
-    margin-top: 10px !important;
-    min-height: auto !important;
-    padding: 178px 0 0 !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 14px !important;
+    position: relative !important;
+    width: min(100vw, 460px) !important;
+    min-height: 560px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     overflow: visible !important;
-    border-radius: 26px !important;
+    border-radius: 0 !important;
+    isolation: isolate !important;
   }
 
   .skills-stage::before {
+    display: block !important;
+    left: 26px !important;
+    right: 26px !important;
+    top: 8px !important;
     height: 2px !important;
-    opacity: 0.75 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 180, 210, 0),
+      rgba(255, 105, 180, 0.62),
+      rgba(255, 220, 240, 0.32),
+      rgba(255, 105, 180, 0.62),
+      rgba(255, 180, 210, 0)
+    ) !important;
+    box-shadow: 0 0 14px rgba(255, 105, 180, 0.12) !important;
   }
 
   .skills-stage::after {
@@ -1266,187 +1253,166 @@
   }
 
   .swing-center {
-    top: 12px !important;
+    position: absolute !important;
     left: 50% !important;
-    width: 170px !important;
-    height: 170px !important;
-    transform: translateX(-50%) !important;
+    top: 48% !important;
+    width: min(310px, 74vw) !important;
+    height: min(310px, 74vw) !important;
+    transform: translate(-50%, -50%) !important;
+    display: grid !important;
+    place-items: center !important;
     opacity: 1 !important;
+    animation: none !important;
+    z-index: 3 !important;
     pointer-events: none !important;
   }
 
-  .skills-section.skills-animate .swing-center {
-    animation: none !important;
-  }
-
   .swing-shell {
-    width: 170px !important;
-    height: 170px !important;
-    top: 0 !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: 100% !important;
     transform: none !important;
+    display: grid !important;
+    place-items: center !important;
+    overflow: visible !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   .swing-lottie {
     width: 100% !important;
     height: 100% !important;
+    transform: scale(1.08) !important;
+    transform-origin: center !important;
   }
 
-  .skill-orb.decorative-orb {
+  .decorative-orb {
     display: none !important;
   }
 
   .skill-orb.project-orb {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    z-index: 5 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    min-width: 0 !important;
-    padding: 0 !important;
+    position: absolute !important;
+    left: var(--mobile-x, var(--x)) !important;
+    top: var(--mobile-y, var(--y)) !important;
+    transform: translate(-50%, -50%) scale(0.78) !important;
     opacity: 1 !important;
-    transform: none !important;
     animation: none !important;
+    z-index: 8 !important;
+    pointer-events: auto !important;
   }
 
-  .project-orb .skill-orb-core,
-  .project-orb.sm .skill-orb-core,
-  .project-orb.md .skill-orb-core,
-  .project-orb.lg .skill-orb-core {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 116px !important;
-    border-radius: 22px !important;
-    overflow: hidden !important;
+  .skill-orb.project-orb:hover,
+  .skill-orb.project-orb:focus-within {
+    z-index: 18 !important;
+  }
+
+  .skill-orb.sm .skill-orb-core,
+  .skill-orb.md .skill-orb-core,
+  .skill-orb.lg .skill-orb-core {
+    border-radius: 50% !important;
     background:
-      radial-gradient(circle at 18% 16%, rgba(255, 118, 182, 0.18), transparent 38%),
-      linear-gradient(145deg, rgba(18, 7, 34, 0.96), rgba(8, 4, 18, 0.95)) !important;
-    border: 1px solid rgba(255, 118, 182, 0.24) !important;
+      radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.10), transparent 36%),
+      rgba(255, 105, 180, 0.06) !important;
+    border: 1px solid rgba(255, 170, 210, 0.24) !important;
     box-shadow:
-      0 14px 32px rgba(0, 0, 0, 0.38),
-      inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
+      0 8px 18px rgba(0, 0, 0, 0.26),
+      0 0 18px rgba(255, 61, 122, 0.13),
+      inset 0 0 18px rgba(255, 105, 180, 0.045) !important;
   }
 
-  .project-orb .skill-orb-aura {
-    inset: 0 !important;
-    opacity: 0.24 !important;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.22), transparent 66%) !important;
+  .skill-orb.sm .skill-orb-core {
+    width: 42px !important;
+    height: 42px !important;
   }
 
-  .project-orb .skill-project-image {
-    inset: 14px !important;
-    border-radius: 16px !important;
-    background-size: contain !important;
+  .skill-orb.md .skill-orb-core {
+    width: 49px !important;
+    height: 49px !important;
+  }
+
+  .skill-orb.lg .skill-orb-core {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .skill-project-image {
+    inset: 7px !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    background-size: 82% auto !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    opacity: 0.98 !important;
   }
 
-  .project-orb .skill-name {
-    position: static !important;
+  .skill-name {
+    position: absolute !important;
+    left: 50% !important;
+    top: calc(100% + 6px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
     display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    margin: 0.58rem 0 0.38rem !important;
+    width: max-content !important;
+    max-width: 76px !important;
     padding: 0 !important;
     border: 0 !important;
+    border-radius: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
-    color: rgba(255, 248, 252, 0.96) !important;
-    font: 800 0.74rem/1.25 'Proza Libre', sans-serif !important;
-    letter-spacing: 0.08em !important;
+    color: rgba(255, 236, 247, 0.78) !important;
     text-align: center !important;
     white-space: normal !important;
     text-transform: uppercase !important;
-    pointer-events: auto !important;
-  }
-
-  .project-orb .skill-name::after {
-    display: none !important;
-  }
-
-  .project-hover-card,
-  .project-hover-card[data-side] {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0.78rem !important;
-    border-radius: 18px !important;
+    letter-spacing: 0.055em !important;
+    font-size: 0.46rem !important;
+    line-height: 1.08 !important;
     opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    transform: none !important;
-    background:
-      radial-gradient(circle at 0% 0%, rgba(255, 105, 180, 0.12), transparent 36%),
-      linear-gradient(145deg, rgba(15, 6, 28, 0.96), rgba(7, 4, 16, 0.94)) !important;
-    border: 1px solid rgba(255, 118, 182, 0.20) !important;
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.30) !important;
+    pointer-events: none !important;
   }
 
-  .project-card-period {
-    margin-bottom: 0.34rem !important;
-    font-size: 0.5rem !important;
-    letter-spacing: 0.13em !important;
-  }
-
-  .project-hover-card strong {
+  .skill-name::after {
     display: none !important;
   }
 
-  .project-card-description {
-    display: -webkit-box !important;
-    margin: 0 0 0.62rem !important;
-    overflow: hidden !important;
-    color: rgba(255, 240, 248, 0.72) !important;
-    font-size: 0.68rem !important;
-    line-height: 1.45 !important;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-
-  .project-card-stack {
-    gap: 0.28rem !important;
-    margin-bottom: 0.66rem !important;
-  }
-
-  .project-card-stack small {
-    padding: 0.2rem 0.36rem !important;
-    font-size: 0.48rem !important;
-  }
-
-  .project-hover-card a,
-  .project-hover-card em {
-    min-height: 28px !important;
-    padding: 0 0.62rem !important;
-    font-size: 0.48rem !important;
+  .project-hover-card {
+    display: none !important;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 430px) {
   .skills-stage {
-    padding-top: 154px !important;
-    grid-template-columns: 1fr !important;
-    gap: 13px !important;
+    width: 100vw !important;
+    min-height: 535px !important;
   }
 
-  .swing-center,
-  .swing-shell {
-    width: 140px !important;
-    height: 140px !important;
+  .swing-center {
+    width: min(292px, 76vw) !important;
+    height: min(292px, 76vw) !important;
   }
 
-  .project-orb .skill-orb-core,
-  .project-orb.sm .skill-orb-core,
-  .project-orb.md .skill-orb-core,
-  .project-orb.lg .skill-orb-core {
-    min-height: 102px !important;
+  .skill-orb.project-orb {
+    transform: translate(-50%, -50%) scale(0.72) !important;
   }
 
-  .project-orb .skill-project-image {
-    inset: 12px !important;
+  .skill-name {
+    max-width: 68px !important;
+    font-size: 0.43rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-stage {
+    min-height: 505px !important;
+  }
+
+  .swing-center {
+    width: min(265px, 74vw) !important;
+    height: min(265px, 74vw) !important;
+  }
+
+  .skill-orb.project-orb {
+    transform: translate(-50%, -50%) scale(0.66) !important;
   }
 }

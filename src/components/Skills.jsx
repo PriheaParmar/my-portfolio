@@ -5,6 +5,22 @@ import { floatingSkills } from '../data/floatingSkills';
 import ScrollFloat from './effects/ScrollFloat';
 import '../styles/Skills.css';
 
+
+const projectMobilePositions = [
+  { x: '18%', y: '18%' },
+  { x: '50%', y: '12%' },
+  { x: '82%', y: '18%' },
+  { x: '11%', y: '37%' },
+  { x: '89%', y: '37%' },
+  { x: '14%', y: '59%' },
+  { x: '86%', y: '59%' },
+  { x: '22%', y: '79%' },
+  { x: '78%', y: '79%' },
+  { x: '50%', y: '90%' },
+  { x: '32%', y: '48%' },
+  { x: '68%', y: '48%' },
+];
+
 function getCardSide(x, y) {
   const xValue = Number.parseFloat(x);
   const yValue = Number.parseFloat(y);
@@ -86,6 +102,10 @@ function Skills() {
 
         {floatingSkills.map((item, index) => {
           const isProject = Boolean(item.description);
+          const projectIndex = isProject
+            ? floatingSkills.slice(0, index).filter((skill) => Boolean(skill.description)).length
+            : -1;
+          const mobilePosition = projectMobilePositions[projectIndex % projectMobilePositions.length];
           const hasProjectLink = item.link && item.link !== '#';
           const cardSide = isProject ? getCardSide(item.x, item.y) : undefined;
           const imageUrl = item.image ? `${process.env.PUBLIC_URL}/${item.image}` : undefined;
@@ -97,6 +117,8 @@ function Skills() {
               style={{
                 '--x': item.x,
                 '--y': item.y,
+                '--mobile-x': mobilePosition?.x,
+                '--mobile-y': mobilePosition?.y,
                 '--delay': `${index * 0.035}s`,
                 ...(imageUrl ? { '--project-image': `url("${imageUrl}")` } : {}),
               }}
