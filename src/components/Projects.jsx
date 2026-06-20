@@ -196,13 +196,30 @@ function Projects() {
       <div className="project-mobile-list" aria-label="Project list">
         {projects.map((project, index) => (
           <article key={`${project.title}-mobile`} className="project-mobile-card">
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <h3>{project.title}</h3>
-            {project.link && project.link !== '#' ? (
-              <a href={project.link} target="_blank" rel="noreferrer">Open</a>
-            ) : (
-              <span className="project-mobile-disabled">Coming soon</span>
-            )}
+            <div className="project-mobile-top">
+              <span className="project-mobile-number">{String(index + 1).padStart(2, '0')}</span>
+              <div className="project-mobile-thumb" aria-hidden="true">
+                {project.image ? <img src={project.image} alt="" loading="lazy" /> : <span />}
+              </div>
+            </div>
+
+            <div className="project-mobile-body">
+              <span className="project-mobile-period">{project.period}</span>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+
+              <div className="project-mobile-stack" aria-label={`${project.title} stack`}>
+                {project.stack.slice(0, 4).map((item) => (
+                  <small key={`${project.title}-${item}`}>{item}</small>
+                ))}
+              </div>
+
+              {project.link && project.link !== '#' ? (
+                <a href={project.link} target="_blank" rel="noreferrer">Open project</a>
+              ) : (
+                <span className="project-mobile-disabled">Coming soon</span>
+              )}
+            </div>
           </article>
         ))}
       </div>

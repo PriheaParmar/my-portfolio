@@ -833,3 +833,230 @@
   .planet-detail-card,
   .project-nav-arrow { transition: none; }
 }
+
+/* ─── Polished mobile Projects layout ─────────────────────────────────────
+   Phones do not have hover, so the solar system becomes clean project cards
+   with the same dark/pink portfolio style. */
+@media (max-width: 860px) {
+  .project {
+    padding: 4.5rem 1rem 5.5rem !important;
+    overflow: hidden;
+  }
+
+  .project-header {
+    max-width: 360px;
+    margin: 0 auto 1.35rem !important;
+    padding: 0 !important;
+  }
+
+  .project-eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.45rem;
+  }
+
+  .project-eyebrow::before,
+  .project-eyebrow::after {
+    width: 24px;
+  }
+
+  .project-title {
+    font-size: clamp(2.6rem, 15vw, 4.4rem) !important;
+    line-height: 1.18 !important;
+    overflow: visible;
+  }
+
+  .project-title .scroll-float,
+  .project-title .scroll-float-text,
+  .project-title .scroll-float-word,
+  .project-title .scroll-float-char {
+    overflow: visible !important;
+  }
+
+  .project-universe {
+    display: none !important;
+  }
+
+  .project-mobile-list {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: min(100%, 430px);
+    margin: 1.2rem auto 0 !important;
+    padding: 0 !important;
+  }
+
+  .project-mobile-card {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    align-items: stretch !important;
+    gap: 0.95rem !important;
+    padding: 0.95rem !important;
+    border: 1px solid rgba(255, 93, 148, 0.22) !important;
+    border-radius: 22px !important;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255, 61, 122, 0.16), transparent 42%),
+      linear-gradient(145deg, rgba(18, 7, 31, 0.94), rgba(7, 4, 16, 0.92)) !important;
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 0 24px rgba(255, 61, 122, 0.08);
+    overflow: hidden;
+  }
+
+  .project-mobile-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(255, 93, 148, 0.12), transparent 30%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%);
+    opacity: 0.85;
+  }
+
+  .project-mobile-top,
+  .project-mobile-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-mobile-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 54px;
+  }
+
+  .project-mobile-number {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 93, 148, 0.36);
+    border-radius: 999px;
+    color: rgba(255, 214, 234, 0.94);
+    background: rgba(255, 61, 122, 0.11);
+    font: 700 0.62rem/1 'Proza Libre', sans-serif;
+    letter-spacing: 0.08em;
+    box-shadow: 0 0 16px rgba(255, 61, 122, 0.12);
+  }
+
+  .project-mobile-thumb {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(255, 225, 240, 0.26);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255, 230, 241, 0.92), rgba(255, 161, 204, 0.78));
+    box-shadow:
+      0 10px 22px rgba(0, 0, 0, 0.26),
+      0 0 18px rgba(255, 61, 122, 0.14);
+    overflow: hidden;
+  }
+
+  .project-mobile-thumb img {
+    display: block;
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+  }
+
+  .project-mobile-thumb span {
+    width: 54%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .project-mobile-body {
+    min-width: 0;
+  }
+
+  .project-mobile-period {
+    display: inline-block;
+    margin-bottom: 0.32rem;
+    color: rgba(255, 108, 168, 0.98);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font: 700 0.55rem/1 'Proza Libre', sans-serif;
+  }
+
+  .project-mobile-card h3 {
+    margin: 0 !important;
+    color: rgba(255, 250, 253, 0.98) !important;
+    font: 700 1.02rem/1.18 'Proza Libre', sans-serif !important;
+    letter-spacing: -0.035em;
+  }
+
+  .project-mobile-card p {
+    margin: 0.44rem 0 0.7rem;
+    color: rgba(255, 240, 248, 0.72);
+    font: 400 0.78rem/1.5 'Proza Libre', sans-serif;
+  }
+
+  .project-mobile-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.32rem;
+    margin-bottom: 0.78rem;
+  }
+
+  .project-mobile-stack small {
+    padding: 0.22rem 0.42rem;
+    border: 1px solid rgba(255, 92, 155, 0.24);
+    border-radius: 999px;
+    color: rgba(255, 226, 241, 0.86);
+    background: rgba(255, 61, 122, 0.075);
+    font: 700 0.5rem/1 'Proza Libre', sans-serif;
+  }
+
+  .project-mobile-card a,
+  .project-mobile-disabled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    padding: 0 0.76rem;
+    border: 1px solid rgba(255, 92, 155, 0.34);
+    border-radius: 999px;
+    color: rgba(255, 248, 252, 0.96) !important;
+    background: rgba(255, 61, 122, 0.10);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    font: 700 0.52rem/1 'Proza Libre', sans-serif !important;
+  }
+
+  .project-mobile-disabled {
+    opacity: 0.58;
+    border-color: rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.045);
+  }
+}
+
+@media (max-width: 420px) {
+  .project {
+    padding-inline: 0.85rem !important;
+  }
+
+  .project-mobile-card {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .project-mobile-top {
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .project-mobile-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+}

@@ -438,28 +438,170 @@
     );
 }
 
-/* Final hero Lottie alignment fix
-   Moves the first-page Lottie slightly upward without changing the rest of the
-   hero layout. */
-.hero-lottie {
-  margin-top: clamp(2rem, 7vh, 5.2rem) !important;
-  transform: scaleX(-1) translateY(-38px) !important;
-}
-
-@media (max-width: 1200px) {
-  .hero-lottie {
-    margin-top: 4vh !important;
-    transform: scaleX(-1) translateY(-30px) !important;
-  }
-}
-
+/* ─── Mobile hero repair: readable text + centered Lottie ────────────────
+   Fixes text clipping on phones and keeps the first-page Lottie centered
+   under the resume button instead of drifting to the side. */
 @media (max-width: 768px) {
+  .home-page {
+    margin-top: 28px;
+    min-height: auto;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page-inner {
+    width: 100%;
+    min-height: auto;
+    padding: clamp(6.8rem, 20vh, 8.2rem) 1rem 3.25rem !important;
+    gap: 0.9rem;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+
+  .welcome-text {
+    width: min(100%, 360px);
+    max-width: 360px;
+    gap: 0.85rem;
+    overflow: visible;
+  }
+
+  .hero-main-title {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(1.75rem, 7.8vw, 2.22rem) !important;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-wrap: balance;
+    overflow: visible;
+  }
+
+  .hero-name-stack {
+    max-width: 100%;
+    overflow: visible;
+    margin-bottom: 0.05em;
+  }
+
+  .hero-name-back {
+    opacity: 0.12;
+    transform: translateY(2px) scale(1.01);
+  }
+
+  .no-break {
+    display: block;
+    white-space: normal !important;
+  }
+
+  .cursive {
+    display: block;
+    font-size: clamp(2.15rem, 11.4vw, 3.3rem);
+    line-height: 1.08;
+    white-space: normal;
+  }
+
+  .rotate {
+    display: block;
+    margin-top: 0.06rem;
+    font-size: clamp(2.05rem, 10.2vw, 3rem) !important;
+    line-height: 1.05;
+    white-space: normal;
+    letter-spacing: -0.045em;
+  }
+
+  .hero-text-block {
+    width: min(100%, 342px);
+    max-width: 342px;
+    margin: 0 auto;
+    font-size: clamp(0.88rem, 3.65vw, 0.98rem) !important;
+    line-height: 1.46;
+    text-align: center;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+    padding-inline: 0.15rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+    margin-top: 0.35rem;
+    justify-content: center;
+  }
+
   .hero-visual-wrap {
-    margin-top: -22vh !important;
+    width: 100%;
+    min-height: 275px !important;
+    margin-top: -0.35rem !important;
+    display: grid;
+    place-items: start center;
+    overflow: visible;
+    transform-origin: center top;
+  }
+
+  .hero-lottie-shell {
+    width: min(86vw, 330px) !important;
+    height: 260px !important;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+  }
+
+  .hero-lottie-shell::before {
+    inset: 22%;
+    filter: blur(22px);
   }
 
   .hero-lottie {
-    margin-top: 2vh !important;
-    transform: scaleX(-1) translate(10px, -24px) !important;
+    display: block;
+    width: min(98vw, 372px) !important;
+    height: auto !important;
+    max-width: none;
+    margin: 0 auto !important;
+    transform: translateY(-18px) scaleX(-1) !important;
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page-inner {
+    padding-top: clamp(6.2rem, 18vh, 7.6rem) !important;
+    padding-inline: 0.85rem !important;
+  }
+
+  .welcome-text {
+    width: min(100%, 338px);
+    max-width: 338px;
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.62rem, 7.4vw, 2rem) !important;
+  }
+
+  .cursive {
+    font-size: clamp(2rem, 10.6vw, 2.9rem);
+  }
+
+  .rotate {
+    font-size: clamp(1.92rem, 9.7vw, 2.65rem) !important;
+  }
+
+  .hero-text-block {
+    width: min(100%, 330px);
+    max-width: 330px;
+    font-size: clamp(0.84rem, 3.55vw, 0.94rem) !important;
+    line-height: 1.45;
+  }
+
+  .hero-visual-wrap {
+    min-height: 250px !important;
+    margin-top: -0.2rem !important;
+  }
+
+  .hero-lottie-shell {
+    width: min(88vw, 308px) !important;
+    height: 240px !important;
+  }
+
+  .hero-lottie {
+    width: min(96vw, 342px) !important;
+    transform: translateY(-14px) scaleX(-1) !important;
   }
 }

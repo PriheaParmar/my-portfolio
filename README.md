@@ -1,31 +1,30 @@
-# ✦ Priya Parmar Portfolio
+<div align="center">
 
-A sleek, animated personal portfolio built to showcase my work as a **Software Developer / Full-Stack Developer**.
+# ✦ Priya Parmar Portfolio ✦
 
-## ✨ What’s Inside
+A dark, dreamy, pink-accented portfolio for my work as a **Software Developer / Full-Stack Developer**.
 
-- Interactive hero section
-- Skills and technology showcase
-- Project highlights with visual cards
-- Professional experience timeline
-- Contact and social links
-- Responsive design for desktop and mobile
+[Live Portfolio](https://prihea-portfolio.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/prihea) · [GitHub](https://github.com/PriheaParmar)
 
-## 🛠 Tech Stack
+</div>
 
-React.js · JavaScript · CSS3 · Lottie Animations · Responsive UI
+## About
 
-## 🚀 Run Locally
+This portfolio highlights my experience, selected projects, tech stack, resume, and contact links through a soft animated space-inspired interface.
+
+## Built With
+
+React · JavaScript · CSS · Lottie · Responsive UI
+
+## Run
 
 ```bash
 npm install
 npm start
 ```
 
-## 🌐 Live Portfolio
-
-[prihea-portfolio.vercel.app](https://prihea-portfolio.vercel.app/)
-
 ---
 
-Made with care, creativity, and a little bit of pink ✦
+<div align="center">
+Built with care, creativity, and a little pink ✦
+</div>
