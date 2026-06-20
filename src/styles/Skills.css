@@ -1416,3 +1416,264 @@
     transform: translate(-50%, -50%) scale(0.66) !important;
   }
 }
+
+/* Final mobile project showcase: keep the same desktop bubble pattern.
+   Mobile now shows the decorative empty bubbles too, uses the same --x/--y
+   placement as desktop, hides the bulky cards, and scales the full stage down. */
+@media (max-width: 900px) {
+  .skills-section {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 4.25rem 0 2.9rem !important;
+    overflow: hidden !important;
+  }
+
+  .skills-header {
+    width: min(100% - 30px, 430px) !important;
+    margin: 0 auto 0.15rem !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    text-align: center !important;
+  }
+
+  .skills-title,
+  .skills-title .scroll-float,
+  .skills-title .scroll-float-text,
+  .skills-title .scroll-float-word,
+  .skills-title .scroll-float-char {
+    overflow: visible !important;
+  }
+
+  .skills-title {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    color: #ffffff !important;
+    font-size: clamp(2.45rem, 12vw, 4.05rem) !important;
+    line-height: 1.24 !important;
+    padding: 0.08em 0 0.22em !important;
+  }
+
+  .skills-stage {
+    position: relative !important;
+    display: block !important;
+    width: min(100vw, 460px) !important;
+    min-height: 545px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border-radius: 0 !important;
+    isolation: isolate !important;
+  }
+
+  .skills-stage::before {
+    display: block !important;
+    left: 24px !important;
+    right: 24px !important;
+    top: 8px !important;
+    height: 2px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 180, 210, 0),
+      rgba(255, 105, 180, 0.66),
+      rgba(255, 235, 248, 0.30),
+      rgba(255, 105, 180, 0.66),
+      rgba(255, 180, 210, 0)
+    ) !important;
+    box-shadow: 0 0 16px rgba(255, 105, 180, 0.14) !important;
+  }
+
+  .skills-stage::after {
+    display: none !important;
+  }
+
+  .swing-center {
+    position: absolute !important;
+    left: 50% !important;
+    top: 44% !important;
+    width: min(330px, 83vw) !important;
+    height: min(330px, 83vw) !important;
+    transform: translate(-50%, -50%) !important;
+    display: grid !important;
+    place-items: center !important;
+    opacity: 1 !important;
+    animation: none !important;
+    z-index: 3 !important;
+    pointer-events: none !important;
+  }
+
+  .swing-shell {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    display: grid !important;
+    place-items: center !important;
+    overflow: visible !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .swing-lottie {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1.06) !important;
+    transform-origin: center !important;
+  }
+
+  .skill-orb,
+  .skill-orb.project-orb,
+  .skill-orb.decorative-orb {
+    position: absolute !important;
+    left: var(--x) !important;
+    top: var(--y) !important;
+    display: block !important;
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(0.72) !important;
+    animation: none !important;
+    z-index: 8 !important;
+    pointer-events: none !important;
+  }
+
+  .skill-orb.project-orb {
+    pointer-events: auto !important;
+    z-index: 10 !important;
+  }
+
+  .skill-orb.project-orb:hover,
+  .skill-orb.project-orb:focus-within {
+    z-index: 18 !important;
+  }
+
+  .decorative-orb {
+    display: block !important;
+    opacity: 0.7 !important;
+  }
+
+  .decorative-orb .skill-orb-core {
+    opacity: 0.64 !important;
+  }
+
+  .skill-orb.sm .skill-orb-core,
+  .skill-orb.md .skill-orb-core,
+  .skill-orb.lg .skill-orb-core {
+    border-radius: 50% !important;
+    background:
+      radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.10), transparent 36%),
+      rgba(255, 105, 180, 0.055) !important;
+    border: 1px solid rgba(255, 170, 210, 0.22) !important;
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.25),
+      0 0 17px rgba(255, 61, 122, 0.11),
+      inset 0 0 18px rgba(255, 105, 180, 0.045) !important;
+  }
+
+  .skill-orb.sm .skill-orb-core {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .skill-orb.md .skill-orb-core {
+    width: 47px !important;
+    height: 47px !important;
+  }
+
+  .skill-orb.lg .skill-orb-core {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .skill-project-image {
+    inset: 7px !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: inherit !important;
+    background-size: 82% auto !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.96 !important;
+  }
+
+  .skill-name {
+    position: absolute !important;
+    left: 50% !important;
+    top: calc(100% + 5px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    display: block !important;
+    width: max-content !important;
+    max-width: 74px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255, 238, 247, 0.76) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-size: 0.43rem !important;
+    line-height: 1.08 !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+
+  .skill-name::after {
+    display: none !important;
+  }
+
+  .project-hover-card {
+    display: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .skills-stage {
+    width: 100vw !important;
+    min-height: 520px !important;
+  }
+
+  .swing-center {
+    top: 44% !important;
+    width: min(305px, 82vw) !important;
+    height: min(305px, 82vw) !important;
+  }
+
+  .skill-orb,
+  .skill-orb.project-orb,
+  .skill-orb.decorative-orb {
+    transform: translate(-50%, -50%) scale(0.66) !important;
+  }
+
+  .skill-name {
+    max-width: 68px !important;
+    font-size: 0.405rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-section {
+    padding-top: 4rem !important;
+  }
+
+  .skills-stage {
+    min-height: 490px !important;
+  }
+
+  .swing-center {
+    width: min(282px, 80vw) !important;
+    height: min(282px, 80vw) !important;
+  }
+
+  .skill-orb,
+  .skill-orb.project-orb,
+  .skill-orb.decorative-orb {
+    transform: translate(-50%, -50%) scale(0.60) !important;
+  }
+}
