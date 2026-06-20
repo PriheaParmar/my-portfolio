@@ -1,39 +1,31 @@
-# Prihea Portfolio
+# ✦ Priya Parmar Portfolio
 
-A cleaned Create React App portfolio for Prihea Parmar.
+A sleek, animated personal portfolio built to showcase my work as a **Software Developer / Full-Stack Developer**.
 
-## Scripts
+## ✨ What’s Inside
+
+- Interactive hero section
+- Skills and technology showcase
+- Project highlights with visual cards
+- Professional experience timeline
+- Contact and social links
+- Responsive design for desktop and mobile
+
+## 🛠 Tech Stack
+
+React.js · JavaScript · CSS3 · Lottie Animations · Responsive UI
+
+## 🚀 Run Locally
 
 ```bash
 npm install
-npm run dev
-npm run lint
-npm run build
+npm start
 ```
 
-`npm start` is also available and is the same as `npm run dev`.
+## 🌐 Live Portfolio
 
-## Project structure
+[prihea-portfolio.vercel.app](https://prihea-portfolio.vercel.app/)
 
-```text
-src/
-  components/
-    effects/
-    ui/
-  data/
-  styles/
-  App.js
-  index.js
-public/
-  favicon.ico
-  logo.png
-  manifest.json
-  robots.txt
-```
+---
 
-## Notes
-
-- `public/logo.png` is used as the browser icon in `public/index.html`.
-- `public/favicon.ico` is used by `public/manifest.json`.
-- Add `public/resume.pdf` if the resume button should open a resume file.
-- `node_modules`, `.git`, editor settings, build output, temporary archives, and duplicate packaged files are intentionally excluded from the cleaned project.
+Made with care, creativity, and a little bit of pink ✦
