@@ -437,3 +437,89 @@
       #000000 100%
     );
 }
+
+/* ─── Final mobile hero tuning ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .home-page {
+    margin-top: 0 !important;
+    min-height: 100svh;
+  }
+
+  .home-page-inner {
+    min-height: 100svh;
+    padding: 7.2rem 1rem 3.5rem !important;
+    gap: 1.1rem !important;
+    justify-content: flex-start;
+  }
+
+  .welcome-text {
+    gap: 1rem !important;
+    width: 100%;
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.72rem, 8vw, 2.45rem) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .hero-name-stack {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .hero-name-back {
+    display: none;
+  }
+
+  .cursive {
+    line-height: 1.15 !important;
+  }
+
+  .rotate {
+    display: inline-block;
+    font-size: clamp(1.55rem, 7vw, 2.2rem) !important;
+  }
+
+  .hero-text-block {
+    max-width: 34rem;
+    font-size: clamp(0.88rem, 3.8vw, 1rem) !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-actions {
+    margin-top: 0.1rem !important;
+  }
+
+  .hero-visual-wrap {
+    width: 100%;
+    min-height: clamp(250px, 52svh, 380px) !important;
+    margin-top: -6vh !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-lottie-shell {
+    width: min(310px, 88vw) !important;
+    height: min(310px, 88vw) !important;
+  }
+
+  .hero-lottie {
+    width: min(390px, 112vw) !important;
+    height: min(390px, 112vw) !important;
+    transform: scaleX(-1) translateX(4px) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-page-inner {
+    padding-top: 6.8rem !important;
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.55rem, 8.6vw, 2.05rem) !important;
+  }
+
+  .hero-text-block {
+    font-size: 0.88rem !important;
+  }
+}

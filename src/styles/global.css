@@ -25,3 +25,42 @@ html {
 html::-webkit-scrollbar {
   display: none;
 }
+
+/* ─── Responsive foundation ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+canvas,
+video {
+  max-width: 100%;
+}
+
+section {
+  min-height: 100svh;
+  scroll-margin-top: 92px;
+}
+
+@media (max-width: 768px) {
+  section {
+    min-height: auto;
+    scroll-margin-top: 84px;
+  }
+}

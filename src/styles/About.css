@@ -370,3 +370,106 @@
     transform: none;
   }
 }
+
+/* ─── Final responsive Experience tuning ───────────────────────────────── */
+@media (max-width: 900px) {
+  .experience-section {
+    padding-top: 8vh !important;
+    padding-bottom: 8vh !important;
+  }
+
+  .experience-left {
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+    padding: 0 0 0.75rem !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .experience-left .scroll-float-text {
+    font-size: clamp(3rem, 13vw, 5.8rem) !important;
+    line-height: 1.06 !important;
+  }
+
+  .timeline-intro {
+    margin-top: 0.75rem !important;
+    font-size: clamp(0.88rem, 3.4vw, 1rem) !important;
+    line-height: 1.55 !important;
+  }
+
+  .mission-timeline::before {
+    left: 8px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .about {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .experience-layout {
+    gap: 18px !important;
+  }
+
+  .experience-left .scroll-float-text {
+    font-size: clamp(2.55rem, 15vw, 4.25rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  .mission-eyebrow {
+    gap: 0.5rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .mission-eyebrow::before {
+    width: 24px !important;
+  }
+
+  .mission-timeline {
+    padding-left: 0 !important;
+  }
+
+  .mission-timeline::before,
+  .mission-node {
+    display: none !important;
+  }
+
+  .timeline-list {
+    gap: 14px !important;
+  }
+
+  .mission-card {
+    position: relative !important;
+    top: auto !important;
+    padding: 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .timeline-card-head {
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .timeline-title-block h3 {
+    font-size: clamp(1.12rem, 5.5vw, 1.38rem) !important;
+    line-height: 1.16 !important;
+  }
+
+  .timeline-meta {
+    font-size: 0.72rem !important;
+  }
+
+  .timeline-stackline {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+
+  .timeline-card li {
+    font-size: 0.78rem !important;
+    line-height: 1.48 !important;
+  }
+}

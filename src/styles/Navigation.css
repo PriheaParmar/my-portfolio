@@ -193,3 +193,56 @@
     font-size: 0.88rem !important;
   }
 }
+
+/* ─── Responsive navbar cleanup ─────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .header {
+    top: 0.65rem !important;
+    width: calc(100vw - 20px) !important;
+  }
+
+  .nav-shell {
+    padding: 0.62rem 0.72rem !important;
+    border-radius: 999px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-shell::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-list {
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(0.7rem, 4vw, 1.35rem) !important;
+    min-width: max-content;
+  }
+
+  .nav-link {
+    font-size: clamp(0.74rem, 3.2vw, 0.9rem) !important;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .nav-link::after {
+    bottom: -0.42rem !important;
+    height: 9px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .nav-shell {
+    padding-inline: 0.58rem !important;
+  }
+
+  .nav-list {
+    gap: 0.72rem !important;
+  }
+
+  .nav-link {
+    font-size: 0.72rem !important;
+  }
+}
