@@ -979,3 +979,254 @@
     transform: translate(-50%, -50%) scale(0.82);
   }
 }
+
+/* ─── Final mobile projects fix: desktop-style bubbles, cleaner + bigger Lottie ─── */
+@media (max-width: 900px) {
+  .project {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 4.4rem 0 3.8rem !important;
+    overflow: hidden !important;
+  }
+
+  .project-header {
+    width: min(100% - 34px, 430px) !important;
+    margin: 0 auto 0.35rem !important;
+    padding: 0 !important;
+  }
+
+  .project-title {
+    font-size: clamp(2.65rem, 13.5vw, 4.45rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .project-lottie-stage {
+    position: relative !important;
+    display: block !important;
+    width: min(100vw, 460px) !important;
+    min-height: 690px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border-radius: 0 !important;
+  }
+
+  .project-lottie-stage::before {
+    left: 30px !important;
+    right: 30px !important;
+    top: 22px !important;
+    height: 2px !important;
+    opacity: 0.72 !important;
+  }
+
+  .project-lottie-stage::after {
+    display: none !important;
+  }
+
+  .project-swing-center {
+    position: absolute !important;
+    left: 50% !important;
+    top: 49% !important;
+    width: min(390px, 96vw) !important;
+    height: min(390px, 96vw) !important;
+    transform: translate(-50%, -50%) !important;
+    display: grid !important;
+    place-items: center !important;
+    opacity: 1 !important;
+    z-index: 3 !important;
+    pointer-events: none !important;
+  }
+
+  .project-swing-hook,
+  .project-swing-rope {
+    display: none !important;
+  }
+
+  .project-swing-shell {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    overflow: visible !important;
+  }
+
+  .project-swing-shell::before {
+    inset: 5px !important;
+    border-color: rgba(255, 105, 180, 0.08) !important;
+    box-shadow: 0 0 38px rgba(255, 61, 122, 0.06) !important;
+  }
+
+  .project-swing-lottie {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1.12) !important;
+    transform-origin: center !important;
+  }
+
+  .project-mobile-list,
+  .project-hover-card {
+    display: none !important;
+  }
+
+  .project-orb-wrap {
+    position: absolute !important;
+    transform: translate(-50%, -50%) scale(0.76) !important;
+    opacity: 1 !important;
+    z-index: 8 !important;
+    animation: none !important;
+  }
+
+  .project.project-animate .project-orb-wrap {
+    animation: projectOrbPopMobileClean 0.3s ease-out both !important;
+    animation-delay: calc(0.2s + var(--delay)) !important;
+  }
+
+  .project-orb {
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    touch-action: manipulation;
+  }
+
+  .project-orb-core {
+    border-radius: 50% !important;
+    background:
+      radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.12), transparent 38%),
+      rgba(255, 105, 180, 0.065) !important;
+    border: 1px solid rgba(255, 170, 210, 0.24) !important;
+    box-shadow:
+      0 9px 18px rgba(0, 0, 0, 0.28),
+      0 0 16px rgba(255, 61, 122, 0.13),
+      inset 0 0 18px rgba(255, 105, 180, 0.045) !important;
+  }
+
+  .project-orb-sm .project-orb-core {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .project-orb-md .project-orb-core {
+    width: 51px !important;
+    height: 51px !important;
+  }
+
+  .project-orb-lg .project-orb-core {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .project-orb-image {
+    width: 48% !important;
+    border-radius: 5px !important;
+  }
+
+  .project-orb-aura {
+    inset: 12% !important;
+    opacity: 0.36 !important;
+  }
+
+  .project-orb:hover .project-orb-core,
+  .project-orb-wrap.is-active .project-orb-core,
+  .project-orb:focus-visible .project-orb-core {
+    transform: scale(1.06) !important;
+    border-color: rgba(255, 170, 210, 0.42) !important;
+    box-shadow:
+      0 10px 22px rgba(0, 0, 0, 0.32),
+      0 0 24px rgba(255, 61, 122, 0.22),
+      inset 0 0 20px rgba(255, 105, 180, 0.07) !important;
+  }
+
+  .project-orb-name {
+    position: absolute !important;
+    left: 50% !important;
+    top: calc(100% + 6px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    opacity: 1 !important;
+    width: max-content !important;
+    max-width: 76px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255, 236, 247, 0.78) !important;
+    font-size: 0.47rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.055em !important;
+    text-align: center !important;
+    white-space: normal !important;
+    text-transform: uppercase !important;
+    pointer-events: none !important;
+  }
+
+  .project-orb-name::after {
+    display: none !important;
+  }
+
+  /* Hand-tuned mobile bubble positions so the bubbles look intentional instead
+     of stacked or randomly cut around the larger Lottie. */
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(2)  { left: 16% !important; top: 14% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(3)  { left: 50% !important; top: 8% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(4)  { left: 84% !important; top: 14% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(5)  { left: 10% !important; top: 32% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(6)  { left: 90% !important; top: 32% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(7)  { left: 15% !important; top: 53% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(8)  { left: 85% !important; top: 53% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(9)  { left: 12% !important; top: 73% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(10) { left: 88% !important; top: 73% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(11) { left: 33% !important; top: 86% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(12) { left: 67% !important; top: 86% !important; }
+  .project-lottie-stage > .project-orb-wrap:nth-of-type(13) { left: 50% !important; top: 96% !important; }
+}
+
+@media (max-width: 430px) {
+  .project-lottie-stage {
+    width: 100vw !important;
+    min-height: 660px !important;
+  }
+
+  .project-swing-center {
+    width: min(370px, 96vw) !important;
+    height: min(370px, 96vw) !important;
+    top: 49% !important;
+  }
+
+  .project-orb-wrap {
+    transform: translate(-50%, -50%) scale(0.70) !important;
+  }
+
+  .project-orb-name {
+    max-width: 68px !important;
+    font-size: 0.44rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .project-lottie-stage {
+    min-height: 625px !important;
+  }
+
+  .project-swing-center {
+    width: min(335px, 96vw) !important;
+    height: min(335px, 96vw) !important;
+  }
+
+  .project-orb-wrap {
+    transform: translate(-50%, -50%) scale(0.64) !important;
+  }
+
+  .project-title {
+    font-size: clamp(2.35rem, 12vw, 3.8rem) !important;
+  }
+}
+
+@keyframes projectOrbPopMobileClean {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.76);
+  }
+}

@@ -11,68 +11,90 @@ function Navigation() {
   const sections = useMemo(() => NAV_ITEMS.map((id) => ({ id, label: formatLabel(id) })), []);
 
   useEffect(() => {
-    let orderedSections = [];
     let ticking = false;
 
-    const collectSections = () => {
-      orderedSections = sections
-        .map(({ id }) => {
-          const spyTarget = document.querySelector(`[data-nav="${id}"]`);
-          const fallback = document.getElementById(id);
-          const el = spyTarget || fallback;
+    const getTargets = () => sections
+      .map(({ id }) => {
+        const spyTarget = document.querySelector(`[data-nav="${id}"]`);
+        const fallback = document.getElementById(id);
+        const el = spyTarget || fallback;
 
-          return el ? { id, top: el.offsetTop } : null;
-        })
-        .filter(Boolean)
-        .sort((a, b) => a.top - b.top);
-    };
+        return el ? { id, el } : null;
+      })
+      .filter(Boolean);
 
     const updateActiveSection = () => {
-      if (!orderedSections.length) {
-        collectSections();
-      }
+      const targets = getTargets();
 
-      if (!orderedSections.length) {
+      if (!targets.length) {
         ticking = false;
         return;
       }
 
-      const offset = window.innerWidth <= 640 ? 110 : 140;
-      const scrollLine = window.scrollY + offset;
-      let currentId = orderedSections[0].id;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      const pageBottom = scrollTop + window.innerHeight >= document.documentElement.scrollHeight - 8;
 
-      for (let i = 0; i < orderedSections.length; i += 1) {
-        if (scrollLine >= orderedSections[i].top) {
-          currentId = orderedSections[i].id;
-        } else {
-          break;
-        }
+      // Avoid mobile browsers keeping the next section highlighted while the
+      // hero is still fully visible at the top of the page.
+      if (scrollTop < 80) {
+        setActiveSection('home');
+        ticking = false;
+        return;
       }
+
+      if (pageBottom) {
+        setActiveSection(targets[targets.length - 1].id);
+        ticking = false;
+        return;
+      }
+
+      const triggerLine = window.innerWidth <= 640
+        ? window.innerHeight * 0.34
+        : window.innerHeight * 0.40;
+
+      let currentId = targets[0].id;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      targets.forEach(({ id, el }) => {
+        const rect = el.getBoundingClientRect();
+        const containsTrigger = rect.top <= triggerLine && rect.bottom >= triggerLine;
+
+        if (containsTrigger) {
+          currentId = id;
+          nearestDistance = 0;
+          return;
+        }
+
+        if (nearestDistance !== 0) {
+          const distance = Math.abs(rect.top - triggerLine);
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            currentId = id;
+          }
+        }
+      });
 
       setActiveSection((prev) => (prev === currentId ? prev : currentId));
       ticking = false;
     };
 
-    const onScroll = () => {
+    const requestUpdate = () => {
       if (ticking) return;
       ticking = true;
       window.requestAnimationFrame(updateActiveSection);
     };
 
-    const onLayoutChange = () => {
-      collectSections();
-      updateActiveSection();
-    };
-
-    onLayoutChange();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onLayoutChange);
-    window.addEventListener('load', onLayoutChange);
+    updateActiveSection();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    window.addEventListener('orientationchange', requestUpdate);
+    window.addEventListener('load', requestUpdate);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onLayoutChange);
-      window.removeEventListener('load', onLayoutChange);
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      window.removeEventListener('orientationchange', requestUpdate);
+      window.removeEventListener('load', requestUpdate);
     };
   }, [sections]);
 
@@ -86,6 +108,7 @@ function Navigation() {
                 href={`#${id}`}
                 className={`nav-link ${activeSection === id ? 'active' : ''}`}
                 aria-current={activeSection === id ? 'page' : undefined}
+                onClick={() => setActiveSection(id)}
               >
                 <span className="nav-link-text">{label}</span>
               </a>

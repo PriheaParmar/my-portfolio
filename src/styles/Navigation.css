@@ -194,20 +194,46 @@
   }
 }
 
-/* ─── Responsive navbar cleanup ─────────────────────────────────────────── */
-@media (max-width: 760px) {
+/* ─── Mobile active underline fix ─────────────────────────────────────────
+   Mobile browsers can keep :hover on the last tapped nav link, which made the
+   wrong section look underlined. On touch screens, only the real .active link
+   is allowed to show the underline. */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:hover {
+    color: rgba(255, 255, 255, 0.58) !important;
+    transform: none !important;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:not(.active):hover::after {
+    opacity: 0 !important;
+    transform: translateX(-50%) scaleX(0.2) !important;
+  }
+
+  .nav-link.active,
+  .nav-link.active:hover {
+    color: #ffffff !important;
+  }
+
+  .nav-link.active::after,
+  .nav-link.active:hover::after {
+    opacity: 1 !important;
+    transform: translateX(-50%) scaleX(1) !important;
+  }
+}
+
+@media (max-width: 640px) {
   .header {
-    top: 0.65rem !important;
+    top: 0.72rem !important;
     width: calc(100vw - 20px) !important;
   }
 
   .nav-shell {
-    padding: 0.62rem 0.72rem !important;
+    padding: 0.72rem 0.76rem !important;
     border-radius: 999px !important;
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
 
   .nav-shell::-webkit-scrollbar {
@@ -215,34 +241,20 @@
   }
 
   .nav-list {
-    justify-content: center !important;
+    width: max-content;
+    min-width: 100%;
     flex-wrap: nowrap !important;
-    gap: clamp(0.7rem, 4vw, 1.35rem) !important;
-    min-width: max-content;
+    justify-content: center;
+    gap: 1rem !important;
   }
 
   .nav-link {
-    font-size: clamp(0.74rem, 3.2vw, 0.9rem) !important;
-    line-height: 1.1;
+    font-size: 0.78rem !important;
     white-space: nowrap;
   }
 
   .nav-link::after {
-    bottom: -0.42rem !important;
+    bottom: -0.5rem !important;
     height: 9px !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .nav-shell {
-    padding-inline: 0.58rem !important;
-  }
-
-  .nav-list {
-    gap: 0.72rem !important;
-  }
-
-  .nav-link {
-    font-size: 0.72rem !important;
   }
 }
