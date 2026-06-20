@@ -21,3 +21,14 @@
     animation: none;
   }
 }
+
+/* Mobile: remove the desktop min-width that can push long rotating words
+   outside the viewport. */
+@media (max-width: 768px) {
+  .rotating-word {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center;
+  }
+}
