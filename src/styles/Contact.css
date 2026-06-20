@@ -12,27 +12,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.35rem;
+  gap: 1.45rem;
   text-align: center;
 }
 
 .contact-line {
   margin: 0;
   position: relative;
-  max-width: min(1120px, 94vw);
-  padding-bottom: 1rem;
+  padding: 0.25rem 0 1.65rem;
   color: rgba(255, 255, 255, 0.9);
   font-family: 'Proza Libre', sans-serif;
-  font-size: clamp(1.85rem, 4.9vw, 5.4rem);
-  line-height: 1.05;
+  font-size: clamp(1.05rem, 1.85vw, 1.85rem);
+  line-height: 1.55;
   letter-spacing: -0.02em;
+  overflow: visible;
 }
 
 .contact-line .scroll-float,
 .contact-line .scroll-float-text,
-.contact-line span {
-  font-size: inherit !important;
-  line-height: inherit !important;
+.contact-line .scroll-float-word,
+.contact-line .scroll-float-char {
+  overflow: visible !important;
+}
+
+.contact-line .scroll-float-text {
+  display: inline-block;
+  padding: 0.2em 0 0.38em;
+  line-height: 1.35 !important;
 }
 
 .contact-line::after {
@@ -41,7 +47,7 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: min(160px, 37vw);
+  width: min(130px, 34vw);
   height: 1px;
   background: linear-gradient(
     90deg,
@@ -52,13 +58,12 @@
   );
 }
 
-
 .email-link {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.76);
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 1;
   transition: color 0.4s ease, transform 0.3s ease;
 }
@@ -87,15 +92,9 @@
 }
 
 @keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .social-media {
@@ -153,11 +152,7 @@
   }
 
   .contact-minimal {
-    gap: 1.05rem;
-  }
-
-  .contact-line {
-    font-size: clamp(1.45rem, 6vw, 4.2rem);
+    gap: 1.3rem;
   }
 
   .social-media {
@@ -174,15 +169,14 @@
   }
 
   .contact-line {
-    font-size: clamp(1.7rem, 10vw, 3.2rem);
-    line-height: 1.12;
-    padding-bottom: 0.85rem;
+    font-size: clamp(1rem, 5.2vw, 1.45rem);
+    line-height: 1.55;
+    padding: 0.25rem 0 1.45rem;
   }
 
-  .contact-helper-text {
-    max-width: 92vw;
-    font-size: 0.84rem;
-    line-height: 1.6;
+  .contact-line .scroll-float-text {
+    padding: 0.22em 0 0.45em;
+    line-height: 1.42 !important;
   }
 
   .email-link {
@@ -197,5 +191,39 @@
   .social-icon {
     width: 1.7rem;
     height: 1.7rem;
+  }
+}
+
+/* Final contact heading size fix
+   Keeps the cursive descenders from getting clipped, but reduces the CTA size. */
+.contact-line {
+  padding: 0.15rem 0 1.35rem !important;
+  line-height: 1.28 !important;
+  overflow: visible !important;
+}
+
+.contact-line .scroll-float,
+.contact-line .scroll-float-text,
+.contact-line .scroll-float-word,
+.contact-line .scroll-float-char {
+  overflow: visible !important;
+}
+
+.contact-line .scroll-float-text {
+  display: inline-block !important;
+  font-size: clamp(2.05rem, 4.15vw, 4.65rem) !important;
+  line-height: 1.18 !important;
+  padding: 0.12em 0.04em 0.30em !important;
+}
+
+@media (max-width: 640px) {
+  .contact-line {
+    padding: 0.1rem 0 1.2rem !important;
+  }
+
+  .contact-line .scroll-float-text {
+    font-size: clamp(1.8rem, 10vw, 3.1rem) !important;
+    line-height: 1.22 !important;
+    padding: 0.14em 0.04em 0.34em !important;
   }
 }
