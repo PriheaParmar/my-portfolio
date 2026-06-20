@@ -17,9 +17,7 @@ function About() {
             </ScrollFloat>
 
             <p className="timeline-intro mission-intro">
-              A hands-on timeline of full-stack work across responsive interfaces, REST API integration,
-              backend logic, authentication flows, database-driven workflows, debugging, deployment,
-              and user-focused product delivery.
+              A compact timeline of the roles, internships, and product work that shaped my development journey.
             </p>
           </div>
         </aside>
@@ -53,7 +51,7 @@ function About() {
 
                   <div className="timeline-stackline mission-stackline">
                     <span className="stack-title">Toolkit</span>
-                    <p>{item.tech.join(' • ')}</p>
+                    <p>{item.tech.join(' - ')}</p>
                   </div>
 
                   <ul>

@@ -411,3 +411,29 @@
     transform: none;
   }
 }
+
+/* ─── Final section fade fix ───────────────────────────────────────────────
+   Softly fades the hero/home background into the Experience section so there
+   is no hard horizontal line between the two sections. */
+.home-page {
+  margin-bottom: -1px;
+}
+
+.home-page::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 4;
+  height: clamp(210px, 28vh, 360px);
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.26) 34%,
+      rgba(2, 1, 4, 0.72) 70%,
+      #000000 100%
+    );
+}
