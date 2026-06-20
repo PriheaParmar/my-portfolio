@@ -12,19 +12,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 1.35rem;
   text-align: center;
 }
 
 .contact-line {
   margin: 0;
   position: relative;
-  padding-bottom: 1.2rem;
-  color: rgba(255, 255, 255, 0.86);
+  max-width: min(1120px, 94vw);
+  padding-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
   font-family: 'Proza Libre', sans-serif;
-  font-size: clamp(1.2rem, 2.4vw, 2.2rem);
-  line-height: 1.25;
+  font-size: clamp(1.85rem, 4.9vw, 5.4rem);
+  line-height: 1.05;
   letter-spacing: -0.02em;
+}
+
+.contact-line .scroll-float,
+.contact-line .scroll-float-text,
+.contact-line span {
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
 .contact-line::after {
@@ -33,7 +41,7 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: min(180px, 42vw);
+  width: min(160px, 37vw);
   height: 1px;
   background: linear-gradient(
     90deg,
@@ -44,12 +52,13 @@
   );
 }
 
+
 .email-link {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.76);
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.5rem, 3vw, 3rem);
   line-height: 1;
   transition: color 0.4s ease, transform 0.3s ease;
 }
@@ -144,7 +153,11 @@
   }
 
   .contact-minimal {
-    gap: 1.4rem;
+    gap: 1.05rem;
+  }
+
+  .contact-line {
+    font-size: clamp(1.45rem, 6vw, 4.2rem);
   }
 
   .social-media {
@@ -161,9 +174,15 @@
   }
 
   .contact-line {
-    font-size: clamp(1.1rem, 6vw, 1.6rem);
-    line-height: 1.35;
-    padding-bottom: 1rem;
+    font-size: clamp(1.7rem, 10vw, 3.2rem);
+    line-height: 1.12;
+    padding-bottom: 0.85rem;
+  }
+
+  .contact-helper-text {
+    max-width: 92vw;
+    font-size: 0.84rem;
+    line-height: 1.6;
   }
 
   .email-link {

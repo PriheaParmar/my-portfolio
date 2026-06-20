@@ -30,7 +30,7 @@ function Contact() {
             scrollEnd="bottom bottom-=40%"
             stagger={0.03}
           >
-            I'm always open to connect and collaborate
+            Have an idea? Let’s build something helpful together
           </ScrollFloat>
         </div>
 
