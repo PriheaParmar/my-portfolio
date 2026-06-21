@@ -1696,7 +1696,7 @@
   }
 
   /* Decorative bubbles */
-  .skills-stage > .skill-orb:nth-child(2)  { --mob-left: 26%; --mob-top: 25%; } /* empty html */
+  .skills-stage > .skill-orb:nth-child(2)  { --mob-left: 26%; --mob-top: 89%; } /* empty html */
    .skills-stage > .skill-orb:nth-child(3)  { --mob-left: 85%; --mob-top: 20%; } 
    .skills-stage > .skill-orb:nth-child(4)  { --mob-left: 85%; --mob-top: 50%; }  
    .skills-stage > .skill-orb:nth-child(5)  { --mob-left: 100%; --mob-top: 20%; } 
