@@ -1677,3 +1677,142 @@
     transform: translate(-50%, -50%) scale(0.60) !important;
   }
 }
+
+/* ─── Mobile-only bubble position editor ────────────────────────────────
+   Edit ONLY this block when you want to arrange bubbles on mobile.
+   Desktop will NOT change.
+
+   left = move bubble left/right
+   top  = move bubble up/down
+
+   Safe mobile range:
+   left: 8% to 92%
+   top:  8% to 86%
+*/
+@media (max-width: 900px) {
+  .skills-stage > .skill-orb {
+    left: var(--mob-left, var(--x)) !important;
+    top: var(--mob-top, var(--y)) !important;
+  }
+
+  /* Decorative bubbles */
+  .skills-stage > .skill-orb:nth-child(2)  { --mob-left: 26%; --mob-top: 25%; } /* empty html */
+   .skills-stage > .skill-orb:nth-child(3)  { --mob-left: 85%; --mob-top: 20%; } 
+   .skills-stage > .skill-orb:nth-child(4)  { --mob-left: 85%; --mob-top: 50%; }  
+   .skills-stage > .skill-orb:nth-child(5)  { --mob-left: 100%; --mob-top: 20%; } 
+   .skills-stage > .skill-orb:nth-child(6)  { --mob-left: 100%; --mob-top: 20%;} 
+   .skills-stage > .skill-orb:nth-child(8)  { --mob-left: 100%; --mob-top: 20%; } 
+  .skills-stage > .skill-orb:nth-child(9)  { --mob-left: 70%; --mob-top: 32%; } /* empty git */
+  .skills-stage > .skill-orb:nth-child(10) { --mob-left: 18%; --mob-top: 55%; } /* empty next */
+  .skills-stage > .skill-orb:nth-child(12) { --mob-left: 78%; --mob-top: 56%; } /* empty tailwind */
+  .skills-stage > .skill-orb:nth-child(14) { --mob-left: 10%; --mob-top: 25%; } /* empty postgres */
+  .skills-stage > .skill-orb:nth-child(15) { --mob-left: 40%; --mob-top: 73%; } /* empty cpp */
+  .skills-stage > .skill-orb:nth-child(17) { --mob-left: 50%; --mob-top: 68%; } /* empty django */
+  .skills-stage > .skill-orb:nth-child(20) { --mob-left: 100%; --mob-top: 20%;  } /* empty express */
+  .skills-stage > .skill-orb:nth-child(24) { --mob-left: 59%; --mob-top: 73%; } /* empty sqlite */
+  .skills-stage > .skill-orb:nth-child(25) { --mob-left: 55%; --mob-top: 63%; } /* empty firebase */
+  .skills-stage > .skill-orb:nth-child(26) { --mob-left: 75%; --mob-top: 26%; } /* empty github */
+  .skills-stage > .skill-orb:nth-child(28) { --mob-left: 78%; --mob-top: 42%; } /* empty postman */
+  .skills-stage > .skill-orb:nth-child(30) { --mob-left: 23%; --mob-top: 42%; } /* empty php */
+
+  /* Project bubbles */
+  .skills-stage > .skill-orb:nth-child(7)  { --mob-left: 82%; --mob-top:32%; }  /* Legal Bot */
+  .skills-stage > .skill-orb:nth-child(11) { --mob-left: 30%; --mob-top: 17%; } /* Happinest */
+  .skills-stage > .skill-orb:nth-child(13) { --mob-left: 10%; --mob-top: 40%; } /* Candy */
+  .skills-stage > .skill-orb:nth-child(16) { --mob-left: 30%; --mob-top: 65%; } /* Havenly */
+  .skills-stage > .skill-orb:nth-child(18) { --mob-left: 75%; --mob-top: 17%; } /* Euphoric */
+  .skills-stage > .skill-orb:nth-child(19) { --mob-left: 96%; --mob-top: 26%; } /* Invent Tech */
+  .skills-stage > .skill-orb:nth-child(21) { --mob-left: 95%; --mob-top: 40%; } /* Portfolio */
+  .skills-stage > .skill-orb:nth-child(22) { --mob-left: 50%; --mob-top: 80%; } /* Formly */
+  .skills-stage > .skill-orb:nth-child(23) { --mob-left: 62%; --mob-top: 25%;} /* Verdecer */
+  .skills-stage > .skill-orb:nth-child(27) { --mob-left: 70%; --mob-top: 65%; } /* DGP Agency */
+  .skills-stage > .skill-orb:nth-child(29) { --mob-left: 23%; --mob-top: 32%; } /* LamborghiniX */
+  .skills-stage > .skill-orb:nth-child(31) { --mob-left: 42%; --mob-top: 25%;} /* SpaceH */
+}
+
+@media (max-width: 430px) {
+  /* Slightly tighten bubbles on very small phones. Edit these if needed too. */
+  .skills-stage > .skill-orb:nth-child(19) { --mob-left: 94%; } /* Invent Tech */
+  .skills-stage > .skill-orb:nth-child(21) { --mob-left: 90%; } /* Portfolio */
+  .skills-stage > .skill-orb:nth-child(13) { --mob-left: 10%; } /* Candy */
+}
+
+/* ─── Mobile Projects Lottie position editor ─────────────────────────────
+   This moves ONLY the Projects Lottie, not the surrounding project bubbles.
+   Edit --project-lottie-mobile-y to adjust it:
+   smaller number = higher, bigger number = lower. */
+@media (max-width: 900px) {
+  .skills-section#projects {
+    --project-lottie-mobile-y: 36%;
+  }
+
+  .skills-section#projects .swing-center {
+    top: var(--project-lottie-mobile-y) !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .skills-section#projects {
+    --project-lottie-mobile-y: 35%;
+  }
+
+  .skills-section#projects .swing-center {
+    top: var(--project-lottie-mobile-y) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-section#projects {
+    --project-lottie-mobile-y: 34%;
+  }
+}
+
+/* ─── DEBUG: empty decorative bubble numbers ────────────────────────────────
+   Shows the exact nth-child number inside each EMPTY decorative bubble so you
+   can match it with the mobile bubble position editor below.
+   Remove this whole block after you finish arranging the bubbles. */
+.skills-section#projects .decorative-orb .skill-orb-core::after {
+  content: var(--debug-num, '');
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  color: rgba(255, 245, 251, 0.96);
+  background: rgba(8, 3, 14, 0.28);
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  text-shadow: 0 0 8px rgba(255, 61, 122, 0.65);
+  pointer-events: none;
+}
+
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(2)  { --debug-num: '2'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(3)  { --debug-num: '3'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(4)  { --debug-num: '4'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(5)  { --debug-num: '5'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(6)  { --debug-num: '6'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(8)  { --debug-num: '8'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(9)  { --debug-num: '9'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(10) { --debug-num: '10'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(12) { --debug-num: '12'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(14) { --debug-num: '14'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(15) { --debug-num: '15'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(17) { --debug-num: '17'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(20) { --debug-num: '20'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(24) { --debug-num: '24'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(25) { --debug-num: '25'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(26) { --debug-num: '26'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(28) { --debug-num: '28'; }
+.skills-section#projects .skills-stage > .decorative-orb:nth-child(30) { --debug-num: '30'; }
+
+@media (max-width: 900px) {
+  .skills-section#projects .decorative-orb .skill-orb-core::after {
+    font-size: 0.68rem;
+  }
+}

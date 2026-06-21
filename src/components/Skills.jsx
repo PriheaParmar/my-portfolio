@@ -130,6 +130,7 @@ function Skills() {
               <span className="skill-orb-core" aria-hidden="true">
                 <span className="skill-orb-aura" />
                 {isProject && item.image && <span className="skill-project-image" />}
+                {!isProject && <span className="debug-bubble-number">{index + 2}</span>}
               </span>
 
               {isProject && <span className="skill-name">{item.label}</span>}
