@@ -1677,64 +1677,77 @@
     transform: translate(-50%, -50%) scale(0.60) !important;
   }
 }
-
-/* ─── Mobile-only bubble position editor ────────────────────────────────
-   Edit ONLY this block when you want to arrange bubbles on mobile.
+/* ─── Mobile-only HEART bubble position editor ───────────────────────────
+   Same final heart shape, 1% wider.
    Desktop will NOT change.
-
-   left = move bubble left/right
-   top  = move bubble up/down
-
-   Safe mobile range:
-   left: 8% to 92%
-   top:  8% to 86%
+   Lottie position is NOT changed here.
 */
 @media (max-width: 900px) {
+  .skills-stage {
+    min-height: 545px !important;
+  }
+
   .skills-stage > .skill-orb {
     left: var(--mob-left, var(--mobile-x, var(--x))) !important;
     top: var(--mob-top, var(--mobile-y, var(--y))) !important;
   }
 
-  /* Decorative bubbles */
-  .skills-stage > .skill-orb:nth-child(2)  { --mob-left: 26%; --mob-top: 25%; } /* empty html */
-   .skills-stage > .skill-orb:nth-child(3)  { --mob-left: 85%; --mob-top: 20%; } 
-   .skills-stage > .skill-orb:nth-child(4)  { --mob-left: 85%; --mob-top: 50%; }  
-   .skills-stage > .skill-orb:nth-child(5)  { --mob-left: 92%; --mob-top: 20%; } 
-   .skills-stage > .skill-orb:nth-child(6)  { --mob-left: 92%; --mob-top: 20%;} 
-   .skills-stage > .skill-orb:nth-child(8)  { --mob-left: 92%; --mob-top: 20%; } 
-  .skills-stage > .skill-orb:nth-child(9)  { --mob-left: 70%; --mob-top: 32%; } /* empty git */
-  .skills-stage > .skill-orb:nth-child(10) { --mob-left: 18%; --mob-top: 55%; } /* empty next */
-  .skills-stage > .skill-orb:nth-child(12) { --mob-left: 78%; --mob-top: 56%; } /* empty tailwind */
-  .skills-stage > .skill-orb:nth-child(14) { --mob-left: 10%; --mob-top: 25%; } /* empty postgres */
-  .skills-stage > .skill-orb:nth-child(15) { --mob-left: 40%; --mob-top: 73%; } /* empty cpp */
-  .skills-stage > .skill-orb:nth-child(17) { --mob-left: 50%; --mob-top: 68%; } /* empty django */
-  .skills-stage > .skill-orb:nth-child(20) { --mob-left: 92%; --mob-top: 20%;  } /* empty express */
-  .skills-stage > .skill-orb:nth-child(24) { --mob-left: 59%; --mob-top: 73%; } /* empty sqlite */
-  .skills-stage > .skill-orb:nth-child(25) { --mob-left: 55%; --mob-top: 63%; } /* empty firebase */
-  .skills-stage > .skill-orb:nth-child(26) { --mob-left: 75%; --mob-top: 26%; } /* empty github */
-  .skills-stage > .skill-orb:nth-child(28) { --mob-left: 78%; --mob-top: 42%; } /* empty postman */
-  .skills-stage > .skill-orb:nth-child(30) { --mob-left: 23%; --mob-top: 42%; } /* empty php */
+  .skills-stage > .skill-orb:nth-child(2)  { --mob-left: 50%; --mob-top: 70%; }
 
-  /* Project bubbles */
-  .skills-stage > .skill-orb:nth-child(7)  { --mob-left: 92%; --mob-top:32%; }  /* Legal Bot */
-  .skills-stage > .skill-orb:nth-child(11) { --mob-left: 30%; --mob-top: 17%; } /* Happinest */
-  .skills-stage > .skill-orb:nth-child(13) { --mob-left: 10%; --mob-top: 40%; } /* Candy */
-  .skills-stage > .skill-orb:nth-child(16) { --mob-left: 30%; --mob-top: 65%; } /* Havenly */
-  .skills-stage > .skill-orb:nth-child(18) { --mob-left: 75%; --mob-top: 17%; } /* Euphoric */
-  .skills-stage > .skill-orb:nth-child(19) { --mob-left: 90%; --mob-top: 26%; } /* Invent Tech */
-  .skills-stage > .skill-orb:nth-child(21) { --mob-left: 90%; --mob-top: 40%; } /* Portfolio */
-  .skills-stage > .skill-orb:nth-child(22) { --mob-left: 50%; --mob-top: 80%; } /* Formly */
-  .skills-stage > .skill-orb:nth-child(23) { --mob-left: 62%; --mob-top: 25%;} /* Verdecer */
-  .skills-stage > .skill-orb:nth-child(27) { --mob-left: 70%; --mob-top: 65%; } /* DGP Agency */
-  .skills-stage > .skill-orb:nth-child(29) { --mob-left: 23%; --mob-top: 32%; } /* LamborghiniX */
-  .skills-stage > .skill-orb:nth-child(31) { --mob-left: 42%; --mob-top: 25%;} /* SpaceH */
+  .skills-stage > .skill-orb:nth-child(3)  { --mob-left: 38%; --mob-top: 70%; }
+  .skills-stage > .skill-orb:nth-child(4)  { --mob-left: 62%; --mob-top: 70%; }
+
+  .skills-stage > .skill-orb:nth-child(5)  { --mob-left: 31%; --mob-top: 65%; }
+  .skills-stage > .skill-orb:nth-child(6)  { --mob-left: 69%; --mob-top: 65%; }
+
+  .skills-stage > .skill-orb:nth-child(7)  { --mob-left: 24%; --mob-top: 59%; } /* Legal Bot */
+  .skills-stage > .skill-orb:nth-child(8)  { --mob-left: 76%; --mob-top: 59%; }
+
+  .skills-stage > .skill-orb:nth-child(9)  { --mob-left: 18%; --mob-top: 50%; }
+  .skills-stage > .skill-orb:nth-child(10) { --mob-left: 61%; --mob-top: 25%; }
+
+  .skills-stage > .skill-orb:nth-child(11) { --mob-left: 89%; --mob-top: 33%; } /* Happinest */
+  .skills-stage > .skill-orb:nth-child(12) { --mob-left: 87%; --mob-top: 43%; }
+
+  .skills-stage > .skill-orb:nth-child(13) { --mob-left: 11%; --mob-top: 33%; } /* Candy */
+  .skills-stage > .skill-orb:nth-child(14) { --mob-left: 13%; --mob-top: 43%; }
+
+  .skills-stage > .skill-orb:nth-child(15) { --mob-left: 15%; --mob-top: 24%; }
+  .skills-stage > .skill-orb:nth-child(16) { --mob-left: 85%; --mob-top: 24%; } /* Havenly */
+
+  .skills-stage > .skill-orb:nth-child(17) { --mob-left: 23%; --mob-top: 19%; }
+  .skills-stage > .skill-orb:nth-child(18) { --mob-left: 77%; --mob-top: 29%; } /* Euphoric */
+
+  .skills-stage > .skill-orb:nth-child(19) { --mob-left: 33%; --mob-top: 17%; } /* Invent Tech */
+  .skills-stage > .skill-orb:nth-child(20) { --mob-left: 67%; --mob-top: 17%; }
+
+  .skills-stage > .skill-orb:nth-child(21) { --mob-left: 26%; --mob-top: 28%; } /* Portfolio */
+  .skills-stage > .skill-orb:nth-child(22) { --mob-left: 42%; --mob-top: 25%; } /* Formly */
+  .skills-stage > .skill-orb:nth-child(23) { --mob-left: 77%; --mob-top: 19%; } /* Verdecer */
+
+  .skills-stage > .skill-orb:nth-child(24) { --mob-left: 21%; --mob-top: 38%; }
+  .skills-stage > .skill-orb:nth-child(25) { --mob-left: 79%; --mob-top: 38%; }
+
+  .skills-stage > .skill-orb:nth-child(26) { --mob-left: 22%; --mob-top: 45%; }
+  .skills-stage > .skill-orb:nth-child(27) { --mob-left: 83%; --mob-top: 49%; } /* DGP Agency */
+
+  .skills-stage > .skill-orb:nth-child(28) { --mob-left: 78%; --mob-top: 45%; }
+  .skills-stage > .skill-orb:nth-child(29) { --mob-left: 50%; --mob-top: 76%; } /* LamborghiniX */
+
+  .skills-stage > .skill-orb:nth-child(30) { --mob-left: 35%; --mob-top: 30%; }
+  .skills-stage > .skill-orb:nth-child(31) { --mob-left: 66%; --mob-top: 30%; } /* SpaceH */
 }
 
 @media (max-width: 430px) {
-  /* Slightly tighten bubbles on very small phones. Edit these if needed too. */
-  .skills-stage > .skill-orb:nth-child(19) { --mob-left: 88%; } /* Invent Tech */
-  .skills-stage > .skill-orb:nth-child(21) { --mob-left: 86%; } /* Portfolio */
-  .skills-stage > .skill-orb:nth-child(13) { --mob-left: 10%; } /* Candy */
+  .skills-stage {
+    min-height: 520px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-stage {
+    min-height: 490px !important;
+  }
 }
 
 /* ─── Mobile Projects Lottie position editor ─────────────────────────────
@@ -1766,5 +1779,119 @@
 @media (max-width: 380px) {
   .skills-section#projects {
     --project-lottie-mobile-y: 34%;
+  }
+}
+
+/* ─── Mobile project popup card: no clipping ───────────────────────────── */
+.mobile-project-modal {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .mobile-project-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999999 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 18px !important;
+    background: rgba(0, 0, 0, 0.42) !important;
+  }
+
+  .mobile-project-modal-card {
+    position: relative !important;
+    width: min(330px, calc(100vw - 36px)) !important;
+    max-width: calc(100vw - 36px) !important;
+    max-height: 68vh !important;
+    overflow-y: auto !important;
+
+    padding: 1rem !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 118, 182, 0.28) !important;
+
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255, 105, 180, 0.16), transparent 36%),
+      linear-gradient(145deg, rgba(17, 7, 31, 0.98), rgba(9, 5, 18, 0.96)) !important;
+
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.62),
+      0 0 32px rgba(255, 61, 122, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+
+    color: #ffffff !important;
+    font-family: 'Proza Libre', sans-serif !important;
+    text-align: left !important;
+  }
+
+  .mobile-project-modal-card strong {
+    display: block !important;
+    margin: 0 !important;
+    color: rgba(255, 248, 252, 0.98) !important;
+    letter-spacing: -0.035em !important;
+    font: 800 1.18rem/1.15 'Proza Libre', sans-serif !important;
+  }
+
+  .mobile-project-modal-card .project-card-description {
+    display: block !important;
+    margin: 0.55rem 0 0.85rem !important;
+    color: rgba(255, 240, 248, 0.82) !important;
+    font: 400 0.78rem/1.55 'Proza Libre', sans-serif !important;
+  }
+
+  .mobile-project-modal-card .project-card-stack {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.36rem !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  .mobile-project-modal-card .project-card-stack small {
+    padding: 0.25rem 0.5rem !important;
+    border: 1px solid rgba(255, 118, 182, 0.28) !important;
+    border-radius: 999px !important;
+    color: rgba(255, 228, 242, 0.92) !important;
+    background: rgba(255, 105, 180, 0.09) !important;
+    font: 800 0.54rem/1 'Proza Libre', sans-serif !important;
+  }
+
+  .mobile-project-modal-card a,
+  .mobile-project-modal-card em {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 34px !important;
+    padding: 0 0.85rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 118, 182, 0.38) !important;
+    color: rgba(255, 248, 252, 0.98) !important;
+    background: rgba(255, 61, 122, 0.14) !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.11em !important;
+    font: 800 0.56rem/1 'Proza Libre', sans-serif !important;
+  }
+
+  .mobile-project-modal-close {
+    position: absolute !important;
+    top: 10px !important;
+    right: 12px !important;
+
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+  }
+
+  .skill-orb.project-orb .project-hover-card {
+    display: none !important;
   }
 }

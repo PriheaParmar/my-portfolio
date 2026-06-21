@@ -5,7 +5,6 @@ import { floatingSkills } from '../data/floatingSkills';
 import ScrollFloat from './effects/ScrollFloat';
 import '../styles/Skills.css';
 
-
 const projectMobilePositions = [
   { x: '18%', y: '18%' },
   { x: '50%', y: '12%' },
@@ -34,6 +33,7 @@ function getCardSide(x, y) {
 function Skills() {
   const sectionRef = useRef(null);
   const [showLottie, setShowLottie] = useState(false);
+  const [activeProject, setActiveProject] = useState(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -102,10 +102,14 @@ function Skills() {
 
         {floatingSkills.map((item, index) => {
           const isProject = Boolean(item.description);
+
           const projectIndex = isProject
             ? floatingSkills.slice(0, index).filter((skill) => Boolean(skill.description)).length
             : -1;
-          const mobilePosition = projectMobilePositions[projectIndex % projectMobilePositions.length];
+
+          const mobilePosition =
+            projectMobilePositions[projectIndex % projectMobilePositions.length];
+
           const hasProjectLink = item.link && item.link !== '#';
           const cardSide = isProject ? getCardSide(item.x, item.y) : undefined;
           const imageUrl = item.image ? `${process.env.PUBLIC_URL}/${item.image}` : undefined;
@@ -123,14 +127,16 @@ function Skills() {
                 ...(imageUrl ? { '--project-image': `url("${imageUrl}")` } : {}),
               }}
               tabIndex={isProject ? 0 : undefined}
-              role={isProject ? 'group' : undefined}
+              role={isProject ? 'button' : undefined}
               aria-label={isProject ? `${item.label} project` : undefined}
               aria-hidden={isProject ? undefined : 'true'}
+              onClick={() => {
+                if (isProject) setActiveProject(item);
+              }}
             >
               <span className="skill-orb-core" aria-hidden="true">
                 <span className="skill-orb-aura" />
                 {isProject && item.image && <span className="skill-project-image" />}
-                {!isProject && <span className="debug-bubble-number">{index + 2}</span>}
               </span>
 
               {isProject && <span className="skill-name">{item.label}</span>}
@@ -160,6 +166,45 @@ function Skills() {
           );
         })}
       </div>
+
+      {activeProject && (
+        <div className="mobile-project-modal" onClick={() => setActiveProject(null)}>
+          <article
+            className="mobile-project-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${activeProject.label} project details`}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="mobile-project-modal-close"
+              aria-label="Close project details"
+              onClick={() => setActiveProject(null)}
+            >
+              ×
+            </button>
+
+            <span className="project-card-period">{activeProject.period}</span>
+            <strong>{activeProject.label}</strong>
+            <span className="project-card-description">{activeProject.description}</span>
+
+            <span className="project-card-stack" aria-label={`${activeProject.label} tech stack`}>
+              {activeProject.stack.map((stackItem) => (
+                <small key={`${activeProject.key}-${stackItem}`}>{stackItem}</small>
+              ))}
+            </span>
+
+            {activeProject.link && activeProject.link !== '#' ? (
+              <a href={activeProject.link} target="_blank" rel="noreferrer">
+                {activeProject.linkLabel || 'View Live'}
+              </a>
+            ) : (
+              <em>Live link soon</em>
+            )}
+          </article>
+        </div>
+      )}
     </section>
   );
 }
